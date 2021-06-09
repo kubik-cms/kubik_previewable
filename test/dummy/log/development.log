@@ -1,0 +1,479 @@
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "slickr" ENCODING = 'unicode'[0m
+  [1m[35m (88.1ms)[0m  [1m[35mCREATE DATABASE "cln_test" ENCODING = 'unicode'[0m
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2895419696988980700)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSubheaderToSlickrPages (20171129144525)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mALTER TABLE "slickr_pages" ADD "page_subheader" text[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2895419696988980700)[0m
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+SHRINE DEPRECATION WARNING: The delete_raw plugin is deprecated and will be removed in Shrine 4. If you were using it with versions plugin, use the new derivatives plugin instead.
+SHRINE DEPRECATION WARNING: The processing plugin is deprecated and will be removed in Shrine 4. If you were using it with versions plugin, use the new derivatives plugin instead.
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+SHRINE DEPRECATION WARNING: The delete_raw plugin is deprecated and will be removed in Shrine 4. If you were using it with versions plugin, use the new derivatives plugin instead.
+SHRINE DEPRECATION WARNING: The processing plugin is deprecated and will be removed in Shrine 4. If you were using it with versions plugin, use the new derivatives plugin instead.
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+SHRINE DEPRECATION WARNING: The delete_raw plugin is deprecated and will be removed in Shrine 4. If you were using it with versions plugin, use the new derivatives plugin instead.
+SHRINE DEPRECATION WARNING: The processing plugin is deprecated and will be removed in Shrine 4. If you were using it with versions plugin, use the new derivatives plugin instead.
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+SHRINE DEPRECATION WARNING: The delete_raw plugin is deprecated and will be removed in Shrine 4. If you were using it with versions plugin, use the new derivatives plugin instead.
+SHRINE DEPRECATION WARNING: The processing plugin is deprecated and will be removed in Shrine 4. If you were using it with versions plugin, use the new derivatives plugin instead.
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2895419696988980700)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateAdminUsers (20210601151017)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admin_users_on_email" ON "admin_users"  ("email")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admin_users_on_reset_password_token" ON "admin_users"  ("reset_password_token")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151017"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveAdminComments (20210601151020)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" bigserial primary key, "namespace" character varying, "body" text, "resource_type" character varying, "resource_id" bigint, "author_type" character varying, "author_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments"  ("resource_type", "resource_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments"  ("author_type", "author_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_namespace" ON "active_admin_comments"  ("namespace")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151020"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrPages (20210601151210)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "slickr_pages" ("id" bigserial primary key, "title" character varying, "slug" character varying, "aasm_state" character varying, "content" json DEFAULT '"[]"', "type" character varying, "slickr_page_id" integer, "active_draft_id" integer, "published_draft_id" integer, "page_header" text, "page_intro" text, "layout" character varying, "meta_title" character varying, "meta_description" text, "og_title" text, "og_title_2" text, "og_description" text, "og_description_2" text, "og_image" text, "og_image_2" text, "page_subheader" text, "page_header_image" character varying, "published_at" timestamp, "publish_schedule_date" date, "publish_schedule_time" timestamp, "discarded_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_slickr_pages_on_slug" ON "slickr_pages"  ("slug")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_pages_on_discarded_at" ON "slickr_pages"  ("discarded_at")[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151210"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrEventLogs (20210601151211)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "slickr_event_logs" ("id" bigserial primary key, "action" character varying, "eventable_type" character varying, "eventable_id" bigint, "admin_user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_0c61080304"
+FOREIGN KEY ("admin_user_id")
+  REFERENCES "admin_users" ("id")
+)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_event_logs_on_eventable_type_and_eventable_id" ON "slickr_event_logs"  ("eventable_type", "eventable_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_event_logs_on_admin_user_id" ON "slickr_event_logs"  ("admin_user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151211"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRolesNamesAndAvatarsToAdminUsers (20210601151212)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "admin_users" ADD "role" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "admin_users" ADD "first_name" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "admin_users" ADD "last_name" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "admin_users" ADD "avatar" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151212"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrSettings (20210601151213)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "slickr_settings" ("id" bigserial primary key, "var" character varying NOT NULL, "value" text, "thing_id" integer, "thing_type" character varying(30), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_slickr_settings_on_thing_type_and_thing_id_and_var" ON "slickr_settings"  ("thing_type", "thing_id", "var")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151213"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrNavigations (20210601151214)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "slickr_navigations" ("id" bigserial primary key, "ancestry" character varying, "slickr_page_id" bigint, "position" integer, "root_type" character varying, "child_type" character varying, "title" character varying, "text" text, "link" character varying, "link_text" character varying, "alt_link_text" character varying, "config_string" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_navigations_on_slickr_page_id" ON "slickr_navigations"  ("slickr_page_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_navigations_on_ancestry" ON "slickr_navigations"  ("ancestry")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151214"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrMediaUploads (20210601151215)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "slickr_media_uploads" ("id" bigserial primary key, "image_data" jsonb DEFAULT '{}' NOT NULL, "file_data" jsonb DEFAULT '{}' NOT NULL, "additional_info" jsonb DEFAULT '{"alt_text":""}' NOT NULL, "aasm_state" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_media_uploads_on_image_data" ON "slickr_media_uploads" USING gin ("image_data")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_media_uploads_on_file_data" ON "slickr_media_uploads" USING gin ("file_data")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_media_uploads_on_additional_info" ON "slickr_media_uploads" USING gin ("additional_info")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151215"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrUploads (20210601151216)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "slickr_uploads" ("id" bigserial primary key, "uploadable_type" character varying, "uploadable_id" bigint, "slickr_media_upload_id" bigint, "additional_info" jsonb DEFAULT '{}' NOT NULL, "position" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_uploads_on_uploadable_type_and_uploadable_id" ON "slickr_uploads"  ("uploadable_type", "uploadable_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_uploads_on_slickr_media_upload_id" ON "slickr_uploads"  ("slickr_media_upload_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_uploads_on_additional_info" ON "slickr_uploads" USING gin ("additional_info")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151216"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrSchedules (20210601151217)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "slickr_schedules" ("id" bigserial primary key, "publish_schedule_date" date, "publish_schedule_time" timestamp, "schedulable_id" integer, "schedulable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151217"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAdminUserIdToSlickrPages (20210601151218)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "slickr_pages" ADD "admin_user_id" bigint[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_pages_on_admin_user_id" ON "slickr_pages"  ("admin_user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151218"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrMetaTags (20210601151219)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "slickr_meta_tags" ("id" bigserial primary key, "title_tag" character varying, "meta_description" text, "og_title" text, "og_description" text, "twitter_title" text, "twitter_description" text, "metatagable_id" integer, "metatagable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151219"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrSnippets (20210601151220)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "slickr_snippets" ("id" bigserial primary key, "position" integer, "kind" character varying, "title" character varying, "header" character varying, "subheader" character varying, "published" boolean DEFAULT FALSE NOT NULL, "content" text, "discarded_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_snippets_on_discarded_at" ON "slickr_snippets"  ("discarded_at")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151220"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrSnippetsCategories (20210601151221)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "slickr_snippets_categories" ("id" bigserial primary key, "title" character varying, "slug" character varying, "header" character varying)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "slickr_snippets" ADD "slickr_snippets_category_id" bigint[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151221"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrHealthChecks (20210601151222)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "slickr_health_checks" ("id" bigserial primary key, "healthy_id" bigint, "healthy_type" character varying, "check_type" character varying, "check_result" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151222"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActivities (20210601151223)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "activities" ("id" bigserial primary key, "trackable_type" character varying, "trackable_id" bigint, "owner_type" character varying, "owner_id" bigint, "key" character varying, "parameters" text, "recipient_type" character varying, "recipient_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_trackable_type_and_trackable_id" ON "activities"  ("trackable_type", "trackable_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_owner_type_and_owner_id" ON "activities"  ("owner_type", "owner_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_recipient_type_and_recipient_id" ON "activities"  ("recipient_type", "recipient_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_trackable_id_and_trackable_type" ON "activities"  ("trackable_id", "trackable_type")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_owner_id_and_owner_type" ON "activities"  ("owner_id", "owner_type")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_recipient_id_and_recipient_type" ON "activities"  ("recipient_id", "recipient_type")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151223"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDeviseToAdminUsers (20210601151455)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "admin_users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2895419696988980700)[0m
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+SHRINE DEPRECATION WARNING: The delete_raw plugin is deprecated and will be removed in Shrine 4. If you were using it with versions plugin, use the new derivatives plugin instead.
+SHRINE DEPRECATION WARNING: The processing plugin is deprecated and will be removed in Shrine 4. If you were using it with versions plugin, use the new derivatives plugin instead.
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2895419696988980700)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-01 15:17:16.699894"], ["updated_at", "2021-06-01 15:17:16.699894"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2895419696988980700)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Initialization autoloaded the constants ActionText::ContentHelper, ActionText::TagHelper, ActiveadminSettingsCached::DSL, Slickr::Metatags, and Slickr::EngineController.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ActionText::ContentHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <top (required)> at /slickr/test/dummy/config/environment.rb:5)
+SHRINE DEPRECATION WARNING: The delete_raw plugin is deprecated and will be removed in Shrine 4. If you were using it with versions plugin, use the new derivatives plugin instead.
+SHRINE DEPRECATION WARNING: The processing plugin is deprecated and will be removed in Shrine 4. If you were using it with versions plugin, use the new derivatives plugin instead.
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (13.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "slickr"[0m
+  [1m[35m (11.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cln_test"[0m
+  [1m[35m (34.1ms)[0m  [1m[35mCREATE DATABASE "slickr" ENCODING = 'unicode'[0m
+  [1m[35m (34.6ms)[0m  [1m[35mCREATE DATABASE "cln_test" ENCODING = 'unicode'[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2895419696988980700)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateAdminUsers (20210601151017)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admin_users_on_email" ON "admin_users"  ("email")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admin_users_on_reset_password_token" ON "admin_users"  ("reset_password_token")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151017"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveAdminComments (20210601151020)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" bigserial primary key, "namespace" character varying, "body" text, "resource_type" character varying, "resource_id" bigint, "author_type" character varying, "author_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments"  ("resource_type", "resource_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments"  ("author_type", "author_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_namespace" ON "active_admin_comments"  ("namespace")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151020"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrPages (20210601151210)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "slickr_pages" ("id" bigserial primary key, "title" character varying, "slug" character varying, "aasm_state" character varying, "content" json DEFAULT '"[]"', "type" character varying, "slickr_page_id" integer, "active_draft_id" integer, "published_draft_id" integer, "page_header" text, "page_intro" text, "layout" character varying, "meta_title" character varying, "meta_description" text, "og_title" text, "og_title_2" text, "og_description" text, "og_description_2" text, "og_image" text, "og_image_2" text, "page_subheader" text, "page_header_image" character varying, "published_at" timestamp, "publish_schedule_date" date, "publish_schedule_time" timestamp, "discarded_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_slickr_pages_on_slug" ON "slickr_pages"  ("slug")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_pages_on_discarded_at" ON "slickr_pages"  ("discarded_at")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151210"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrEventLogs (20210601151211)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "slickr_event_logs" ("id" bigserial primary key, "action" character varying, "eventable_type" character varying, "eventable_id" bigint, "admin_user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_0c61080304"
+FOREIGN KEY ("admin_user_id")
+  REFERENCES "admin_users" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_event_logs_on_eventable_type_and_eventable_id" ON "slickr_event_logs"  ("eventable_type", "eventable_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_event_logs_on_admin_user_id" ON "slickr_event_logs"  ("admin_user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151211"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRolesNamesAndAvatarsToAdminUsers (20210601151212)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "admin_users" ADD "role" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "admin_users" ADD "first_name" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "admin_users" ADD "last_name" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "admin_users" ADD "avatar" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151212"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrSettings (20210601151213)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "slickr_settings" ("id" bigserial primary key, "var" character varying NOT NULL, "value" text, "thing_id" integer, "thing_type" character varying(30), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_slickr_settings_on_thing_type_and_thing_id_and_var" ON "slickr_settings"  ("thing_type", "thing_id", "var")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151213"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrNavigations (20210601151214)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "slickr_navigations" ("id" bigserial primary key, "ancestry" character varying, "slickr_page_id" bigint, "position" integer, "root_type" character varying, "child_type" character varying, "title" character varying, "text" text, "link" character varying, "link_text" character varying, "alt_link_text" character varying, "config_string" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_navigations_on_slickr_page_id" ON "slickr_navigations"  ("slickr_page_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_navigations_on_ancestry" ON "slickr_navigations"  ("ancestry")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151214"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrMediaUploads (20210601151215)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "slickr_media_uploads" ("id" bigserial primary key, "image_data" jsonb DEFAULT '{}' NOT NULL, "file_data" jsonb DEFAULT '{}' NOT NULL, "additional_info" jsonb DEFAULT '{"alt_text":""}' NOT NULL, "aasm_state" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_media_uploads_on_image_data" ON "slickr_media_uploads" USING gin ("image_data")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_media_uploads_on_file_data" ON "slickr_media_uploads" USING gin ("file_data")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_media_uploads_on_additional_info" ON "slickr_media_uploads" USING gin ("additional_info")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151215"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrUploads (20210601151216)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "slickr_uploads" ("id" bigserial primary key, "uploadable_type" character varying, "uploadable_id" bigint, "slickr_media_upload_id" bigint, "additional_info" jsonb DEFAULT '{}' NOT NULL, "position" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_uploads_on_uploadable_type_and_uploadable_id" ON "slickr_uploads"  ("uploadable_type", "uploadable_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_uploads_on_slickr_media_upload_id" ON "slickr_uploads"  ("slickr_media_upload_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_uploads_on_additional_info" ON "slickr_uploads" USING gin ("additional_info")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151216"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrSchedules (20210601151217)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "slickr_schedules" ("id" bigserial primary key, "publish_schedule_date" date, "publish_schedule_time" timestamp, "schedulable_id" integer, "schedulable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151217"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAdminUserIdToSlickrPages (20210601151218)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "slickr_pages" ADD "admin_user_id" bigint[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_pages_on_admin_user_id" ON "slickr_pages"  ("admin_user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151218"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrMetaTags (20210601151219)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "slickr_meta_tags" ("id" bigserial primary key, "title_tag" character varying, "meta_description" text, "og_title" text, "og_description" text, "twitter_title" text, "twitter_description" text, "metatagable_id" integer, "metatagable_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151219"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrSnippets (20210601151220)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "slickr_snippets" ("id" bigserial primary key, "position" integer, "kind" character varying, "title" character varying, "header" character varying, "subheader" character varying, "published" boolean DEFAULT FALSE NOT NULL, "content" text, "discarded_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_slickr_snippets_on_discarded_at" ON "slickr_snippets"  ("discarded_at")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151220"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrSnippetsCategories (20210601151221)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "slickr_snippets_categories" ("id" bigserial primary key, "title" character varying, "slug" character varying, "header" character varying)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "slickr_snippets" ADD "slickr_snippets_category_id" bigint[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151221"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSlickrHealthChecks (20210601151222)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "slickr_health_checks" ("id" bigserial primary key, "healthy_id" bigint, "healthy_type" character varying, "check_type" character varying, "check_result" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151222"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActivities (20210601151223)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "activities" ("id" bigserial primary key, "trackable_type" character varying, "trackable_id" bigint, "owner_type" character varying, "owner_id" bigint, "key" character varying, "parameters" text, "recipient_type" character varying, "recipient_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_trackable_type_and_trackable_id" ON "activities"  ("trackable_type", "trackable_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_owner_type_and_owner_id" ON "activities"  ("owner_type", "owner_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_recipient_type_and_recipient_id" ON "activities"  ("recipient_type", "recipient_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_trackable_id_and_trackable_type" ON "activities"  ("trackable_id", "trackable_type")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_owner_id_and_owner_type" ON "activities"  ("owner_id", "owner_type")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_recipient_id_and_recipient_type" ON "activities"  ("recipient_id", "recipient_type")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210601151223"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-01 15:36:41.459489"], ["updated_at", "2021-06-01 15:36:41.459489"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2895419696988980700)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
