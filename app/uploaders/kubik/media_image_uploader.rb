@@ -25,7 +25,7 @@ module Kubik
     end
 
     def generate_location(io, context)
-      path = super[/^(.*[\\\/])/]
+      path = super[%r{^(.*[\\\/])}]
       version = context[:derivative]
       is_original = version.nil? || version == :original
       return path + context[:metadata]['filename'].tr(' ', '_') if is_original
