@@ -3,5 +3,4 @@
 require "test_helper"
 
 class KubikPreviewableTest < Minitest::Test
-
 end
