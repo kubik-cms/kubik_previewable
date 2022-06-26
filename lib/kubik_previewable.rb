@@ -7,4 +7,5 @@ end
 
 module Kubik
   require 'kubik/kubik_previewable'
+  require 'kubik/preview_shared_admin_actions'
 end

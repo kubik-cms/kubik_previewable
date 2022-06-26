@@ -15,10 +15,7 @@ class BlogTest < ActionDispatch::IntegrationTest
     within(".index_as_table") do
       click_on "Edit"
     end
-    click_on "SEO"
-    fill_in("Title tag", with: "Test title tag")
-    fill_in("Meta description", with: "Test description")
-    click_on("Update Example")
+    click_on "Preview"
     page.assert_all_of_selectors(:css, "tr.row-title_tag", visible: true)
     assert_includes(page.first("tr.row-title_tag").text, "Test title tag")
   end

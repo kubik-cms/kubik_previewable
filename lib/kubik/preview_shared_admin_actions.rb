@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module Slickr
+module Kubik
   # SharedAdminActions module
-  module SharedAdminActions
+  module PreviewSharedAdminActions
     extend ActiveSupport::Concern
 
     # rubocop:disable Metrics/MethodLength
@@ -15,9 +15,9 @@ module Slickr
                 only: %i[edit show],
                 method: :get,
                 if: proc {
-                  base_class.respond_to?(:slickr_previewable_opts) &&
-                  base_class.slickr_previewable_opts &&
-                  base_class.slickr_previewable_opts[:preview_enabled]
+                  base_class.respond_to?(:kubik_previewable_opts) &&
+                  base_class.kubik_previewable_opts &&
+                  base_class.kubik_previewable_opts[:preview_enabled]
                 }) do
         link_to "Preview",
                 send("preview_#{route_key}_admin_#{route_key}_path"),
@@ -31,12 +31,12 @@ module Slickr
       base.send(:member_action,
                 :"preview_#{route_key}",
                 method: :get) do
-        resource.slickr_previewable_instance_variables.each do |name, value|
+        resource.kubik_previewable_instance_variables.each do |name, value|
           instance_variable_set("@#{name}", value)
         end
-        render layout: resource.slickr_previewable_layout,
-               template: resource.slickr_previewable_template,
-               locals: resource.slickr_previewable_locals
+        render layout: resource.kubik_previewable_layout,
+               template: resource.kubik_previewable_template,
+               locals: resource.kubik_previewable_locals
       end
     end
     # rubocop:enable Metrics/AbcSize

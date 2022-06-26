@@ -7,3 +7,9 @@
 /pkg/
 /spec/reports/
 /tmp/
+/test/dummy/node_modules
+/test/dummy/tmp
+/.active_admin_sample/node_modules
+/.active_admin_sample/tmp
+/.active_admin_sample/public/uploads
+

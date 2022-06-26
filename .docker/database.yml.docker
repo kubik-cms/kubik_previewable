@@ -8,13 +8,9 @@ default: &default
 
 development:
   <<: *default
-  #database: cln_development
   schema_search_path: myapp,sharedapp,public
   min_messages: notice
   database: <%= ENV['POSTGRES_DB'] %>
-  #host: localhost
-  #username: postgres
-  #password:
 
 test:
   <<: *default

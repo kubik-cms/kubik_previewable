@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "kubik_previewable"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["Bart Oleszczyk"]
   spec.email         = ["bart@primate.co.uk"]
 
@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "activeadmin", ">= 1.2.1"
   spec.add_dependency "devise", "~> 4.3"
   spec.add_development_dependency "pg"
-  spec.add_dependency "rails", "~> 6.0.3.1"
+  spec.add_dependency "rails", "~> 6.0"
   spec.add_development_dependency "warning"
 
   # For more information and examples about making a new gem, checkout our

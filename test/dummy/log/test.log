@@ -7699,3 +7699,563 @@ Migrating to CreateExamples (20210610082507)
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "active_admin_comments" DISABLE TRIGGER ALL;ALTER TABLE "admin_users" DISABLE TRIGGER ALL;ALTER TABLE "examples" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mDELETE FROM "examples";
+DELETE FROM "admin_users";
+INSERT INTO "examples" ("id", "dummy_title") VALUES (1008787885, 'Dummy title');
+INSERT INTO "admin_users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (135138680, 'test@test.com', '$2a$04$xOv0ilF2Umh6soyAihNgMut8lSA03LP/J4uuBd8EMTdwyZHLVfJhK', '2022-06-24 14:01:17.251681', '2022-06-24 14:01:17.251681')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "active_admin_comments" ENABLE TRIGGER ALL;ALTER TABLE "admin_users" ENABLE TRIGGER ALL;ALTER TABLE "examples" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_a_default_layout
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PreviewableTest: test_has_default_instance_variables
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_a_default_template
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_overriden_template
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+PreviewableTest: test_has_default_locales
+-----------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+PreviewableTest: test_has_overriden_instance_variables
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_overriden_layout
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+PreviewableTest: test_has_overriden_locales
+-------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+BlogTest: test_shows_blog_posts
+-------------------------------
+Started GET "/admin/login" for 127.0.0.1 at 2022-06-24 14:01:17 +0000
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/devise/shared/_links.erb (Duration: 2.8ms | Allocations: 788)
+  Rendered /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (Duration: 23.5ms | Allocations: 6242)
+Completed 200 OK in 476ms (Views: 468.0ms | ActiveRecord: 0.0ms | Allocations: 168304)
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "active_admin_comments" DISABLE TRIGGER ALL;ALTER TABLE "admin_users" DISABLE TRIGGER ALL;ALTER TABLE "examples" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mDELETE FROM "examples";
+DELETE FROM "admin_users";
+INSERT INTO "examples" ("id", "dummy_title") VALUES (1008787885, 'Dummy title');
+INSERT INTO "admin_users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (135138680, 'test@test.com', '$2a$04$4ledUK3i3WnnsH05LmeNku/sPlmNlmEbH/ucSWGcqAIZ21M3bZo3O', '2022-06-24 14:17:45.638544', '2022-06-24 14:17:45.638544')[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "active_admin_comments" ENABLE TRIGGER ALL;ALTER TABLE "admin_users" ENABLE TRIGGER ALL;ALTER TABLE "examples" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+BlogTest: test_shows_blog_posts
+-------------------------------
+Started GET "/admin/login" for 127.0.0.1 at 2022-06-24 14:17:45 +0000
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/devise/shared/_links.erb (Duration: 2.4ms | Allocations: 788)
+  Rendered /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (Duration: 21.0ms | Allocations: 6242)
+Completed 200 OK in 223ms (Views: 216.2ms | ActiveRecord: 0.0ms | Allocations: 34421)
+  [1m[36mAdminUser Load (0.2ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+Started GET "/admin/examples" for 127.0.0.1 at 2022-06-24 14:17:45 +0000
+Processing by Admin::ExamplesController#index as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "examples" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "examples" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "examples"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "examples" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mExample Load (0.8ms)[0m  [1m[34mSELECT "examples".* FROM "examples" ORDER BY "examples"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/resource/index.html.arb (Duration: 45.7ms | Allocations: 18668)
+Completed 200 OK in 52ms (Views: 45.7ms | ActiveRecord: 2.3ms | Allocations: 21275)
+Started GET "/admin/examples/1008787885/edit" for 127.0.0.1 at 2022-06-24 14:17:45 +0000
+Processing by Admin::ExamplesController#edit as HTML
+  Parameters: {"id"=>"1008787885"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+  [1m[36mExample Load (0.2ms)[0m  [1m[34mSELECT "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT $2[0m  [["id", 1008787885], ["LIMIT", 1]]
+  Rendering /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Example Load (0.0ms)[0m  [1m[34mSELECT "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT $2[0m  [["id", 1008787885], ["LIMIT", 1]]
+  Rendered /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/resource/edit.html.arb (Duration: 8.9ms | Allocations: 8299)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.5ms | Allocations: 10086)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+PreviewableTest: test_has_overriden_instance_variables
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+PreviewableTest: test_has_overriden_locales
+-------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_overriden_template
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_a_default_layout
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_a_default_template
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_overriden_layout
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+PreviewableTest: test_has_default_locales
+-----------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PreviewableTest: test_has_default_instance_variables
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "active_admin_comments" DISABLE TRIGGER ALL;ALTER TABLE "admin_users" DISABLE TRIGGER ALL;ALTER TABLE "examples" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mDELETE FROM "examples";
+DELETE FROM "admin_users";
+INSERT INTO "examples" ("id", "dummy_title") VALUES (1008787885, 'Dummy title');
+INSERT INTO "admin_users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (135138680, 'test@test.com', '$2a$04$dJRQbIXOSSgLvCxOCcf8WuN/QQTlQ3AkEj1ZjHI/ZgIOc2SdZrm2i', '2022-06-24 14:18:55.283349', '2022-06-24 14:18:55.283349')[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "active_admin_comments" ENABLE TRIGGER ALL;ALTER TABLE "admin_users" ENABLE TRIGGER ALL;ALTER TABLE "examples" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_a_default_layout
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PreviewableTest: test_has_default_instance_variables
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+PreviewableTest: test_has_default_locales
+-----------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+PreviewableTest: test_has_overriden_instance_variables
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_a_default_template
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+PreviewableTest: test_has_overriden_locales
+-------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_overriden_layout
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_overriden_template
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+BlogTest: test_shows_blog_posts
+-------------------------------
+Started GET "/admin/login" for 127.0.0.1 at 2022-06-24 14:18:55 +0000
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/devise/shared/_links.erb (Duration: 3.9ms | Allocations: 788)
+  Rendered /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (Duration: 22.7ms | Allocations: 6242)
+Completed 200 OK in 187ms (Views: 179.7ms | ActiveRecord: 0.0ms | Allocations: 35249)
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+Started GET "/admin/examples" for 127.0.0.1 at 2022-06-24 14:18:55 +0000
+Processing by Admin::ExamplesController#index as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "examples" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "examples" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "examples"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "examples" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mExample Load (0.8ms)[0m  [1m[34mSELECT "examples".* FROM "examples" ORDER BY "examples"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/resource/index.html.arb (Duration: 46.7ms | Allocations: 18668)
+Completed 200 OK in 55ms (Views: 46.7ms | ActiveRecord: 2.5ms | Allocations: 21275)
+Started GET "/admin/examples/1008787885/edit" for 127.0.0.1 at 2022-06-24 14:18:55 +0000
+Processing by Admin::ExamplesController#edit as HTML
+  Parameters: {"id"=>"1008787885"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+  [1m[36mExample Load (0.3ms)[0m  [1m[34mSELECT "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT $2[0m  [["id", 1008787885], ["LIMIT", 1]]
+  Rendering /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Example Load (0.0ms)[0m  [1m[34mSELECT "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT $2[0m  [["id", 1008787885], ["LIMIT", 1]]
+  Rendered /usr/local/bundle/gems/activeadmin-2.9.0/app/views/active_admin/resource/edit.html.arb (Duration: 9.8ms | Allocations: 8299)
+Completed 200 OK in 15ms (Views: 11.0ms | ActiveRecord: 0.8ms | Allocations: 10078)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "active_admin_comments" DISABLE TRIGGER ALL;ALTER TABLE "admin_users" DISABLE TRIGGER ALL;ALTER TABLE "examples" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mDELETE FROM "examples";
+DELETE FROM "admin_users";
+INSERT INTO "examples" ("id", "dummy_title") VALUES (1008787885, 'Dummy title');
+INSERT INTO "admin_users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (135138680, 'test@test.com', '$2a$04$0WtIFY.9XUzMrvgXNRlJ9.4hRiQHUQ3/EcxDN/IURal8GCvlDOMEG', '2022-06-24 14:25:27.951642', '2022-06-24 14:25:27.951642')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "active_admin_comments" ENABLE TRIGGER ALL;ALTER TABLE "admin_users" ENABLE TRIGGER ALL;ALTER TABLE "examples" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+BlogTest: test_shows_blog_posts
+-------------------------------
+Started GET "/admin/login" for 127.0.0.1 at 2022-06-24 14:25:28 +0000
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/devise/shared/_links.erb (Duration: 2.0ms | Allocations: 792)
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (Duration: 13.0ms | Allocations: 6314)
+Completed 200 OK in 516ms (Views: 509.9ms | ActiveRecord: 0.0ms | Allocations: 177138)
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+Started GET "/admin/examples" for 127.0.0.1 at 2022-06-24 14:25:28 +0000
+Processing by Admin::ExamplesController#index as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mExample Load (0.6ms)[0m  [1m[34mSELECT "examples".* FROM "examples" ORDER BY "examples"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/index.html.arb (Duration: 20.8ms | Allocations: 17211)
+Completed 200 OK in 26ms (Views: 21.7ms | ActiveRecord: 0.6ms | Allocations: 19758)
+Started GET "/admin/examples/1008787885/edit" for 127.0.0.1 at 2022-06-24 14:25:28 +0000
+Processing by Admin::ExamplesController#edit as HTML
+  Parameters: {"id"=>"1008787885"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+  [1m[36mExample Load (0.2ms)[0m  [1m[34mSELECT "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT $2[0m  [["id", 1008787885], ["LIMIT", 1]]
+  Rendering /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Example Load (0.0ms)[0m  [1m[34mSELECT "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT $2[0m  [["id", 1008787885], ["LIMIT", 1]]
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/edit.html.arb (Duration: 8.5ms | Allocations: 7752)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.5ms | Allocations: 9523)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+PreviewableTest: test_has_default_locales
+-----------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_a_default_template
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_overriden_template
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_overriden_layout
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PreviewableTest: test_has_default_instance_variables
+----------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+PreviewableTest: test_has_overriden_instance_variables
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+PreviewableTest: test_has_overriden_locales
+-------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_a_default_layout
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "active_admin_comments" DISABLE TRIGGER ALL;ALTER TABLE "admin_users" DISABLE TRIGGER ALL;ALTER TABLE "examples" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mDELETE FROM "examples";
+DELETE FROM "admin_users";
+INSERT INTO "examples" ("id", "dummy_title") VALUES (1008787885, 'Dummy title');
+INSERT INTO "admin_users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (135138680, 'test@test.com', '$2a$04$b01/61r5YNQ1pMfzHTpKAuVpMieJ./hMS1QpuCY53jUycbjdblLj2', '2022-06-24 14:25:56.614596', '2022-06-24 14:25:56.614596')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "active_admin_comments" ENABLE TRIGGER ALL;ALTER TABLE "admin_users" ENABLE TRIGGER ALL;ALTER TABLE "examples" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+BlogTest: test_shows_blog_posts
+-------------------------------
+Started GET "/admin/login" for 127.0.0.1 at 2022-06-24 14:25:56 +0000
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/devise/shared/_links.erb (Duration: 2.0ms | Allocations: 792)
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (Duration: 13.8ms | Allocations: 6314)
+Completed 200 OK in 235ms (Views: 229.3ms | ActiveRecord: 0.0ms | Allocations: 36655)
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+Started GET "/admin/examples" for 127.0.0.1 at 2022-06-24 14:25:56 +0000
+Processing by Admin::ExamplesController#index as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mExample Load (0.9ms)[0m  [1m[34mSELECT "examples".* FROM "examples" ORDER BY "examples"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/index.html.arb (Duration: 34.4ms | Allocations: 17211)
+Completed 200 OK in 45ms (Views: 36.2ms | ActiveRecord: 0.9ms | Allocations: 19757)
+Started GET "/admin/examples/1008787885/edit" for 127.0.0.1 at 2022-06-24 14:25:56 +0000
+Processing by Admin::ExamplesController#edit as HTML
+  Parameters: {"id"=>"1008787885"}
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+  [1m[36mExample Load (0.1ms)[0m  [1m[34mSELECT "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT $2[0m  [["id", 1008787885], ["LIMIT", 1]]
+  Rendering /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Example Load (0.0ms)[0m  [1m[34mSELECT "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT $2[0m  [["id", 1008787885], ["LIMIT", 1]]
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/edit.html.arb (Duration: 9.8ms | Allocations: 7752)
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 0.5ms | Allocations: 9531)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+PreviewableTest: test_has_overriden_instance_variables
+------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_a_default_layout
+------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+PreviewableTest: test_has_default_locales
+-----------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_a_default_template
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_overriden_template
+--------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+PreviewableTest: test_has_overriden_locales
+-------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_overriden_layout
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PreviewableTest: test_has_default_instance_variables
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "active_admin_comments" DISABLE TRIGGER ALL;ALTER TABLE "admin_users" DISABLE TRIGGER ALL;ALTER TABLE "examples" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[31mDELETE FROM "examples";
+DELETE FROM "admin_users";
+INSERT INTO "examples" ("id", "dummy_title") VALUES (1008787885, 'Dummy title');
+INSERT INTO "admin_users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (135138680, 'test@test.com', '$2a$04$NBew33MbfIttoDVYHuXLk.vFnLCj6WuxrKLe4qLvuKQYGncmcPs6u', '2022-06-24 14:26:50.217404', '2022-06-24 14:26:50.217404')[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "active_admin_comments" ENABLE TRIGGER ALL;ALTER TABLE "admin_users" ENABLE TRIGGER ALL;ALTER TABLE "examples" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PreviewableTest: test_has_default_instance_variables
+----------------------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_overriden_template
+--------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_overriden_layout
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+PreviewableTest: test_has_default_locales
+-----------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_a_default_layout
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+PreviewableTest: test_has_overriden_locales
+-------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_a_default_template
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+PreviewableTest: test_has_overriden_instance_variables
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+BlogTest: test_shows_blog_posts
+-------------------------------
+Started GET "/admin/login" for 127.0.0.1 at 2022-06-24 14:26:50 +0000
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/devise/shared/_links.erb (Duration: 5.3ms | Allocations: 792)
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (Duration: 17.4ms | Allocations: 6314)
+Completed 200 OK in 232ms (Views: 222.6ms | ActiveRecord: 0.0ms | Allocations: 36693)
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+Started GET "/admin/examples" for 127.0.0.1 at 2022-06-24 14:26:50 +0000
+Processing by Admin::ExamplesController#index as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mExample Load (0.6ms)[0m  [1m[34mSELECT "examples".* FROM "examples" ORDER BY "examples"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/index.html.arb (Duration: 20.8ms | Allocations: 17210)
+Completed 200 OK in 28ms (Views: 22.4ms | ActiveRecord: 0.6ms | Allocations: 19756)
+Started GET "/admin/examples/1008787885/edit" for 127.0.0.1 at 2022-06-24 14:26:50 +0000
+Processing by Admin::ExamplesController#edit as HTML
+  Parameters: {"id"=>"1008787885"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+  [1m[36mExample Load (0.1ms)[0m  [1m[34mSELECT "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT $2[0m  [["id", 1008787885], ["LIMIT", 1]]
+  Rendering /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Example Load (0.0ms)[0m  [1m[34mSELECT "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT $2[0m  [["id", 1008787885], ["LIMIT", 1]]
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/edit.html.arb (Duration: 8.6ms | Allocations: 7752)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.5ms | Allocations: 9535)
+  [1m[35m (4.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "active_admin_comments" DISABLE TRIGGER ALL;ALTER TABLE "admin_users" DISABLE TRIGGER ALL;ALTER TABLE "examples" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mDELETE FROM "examples";
+DELETE FROM "admin_users";
+INSERT INTO "examples" ("id", "dummy_title") VALUES (1008787885, 'Dummy title');
+INSERT INTO "admin_users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (135138680, 'test@test.com', '$2a$04$fzablkdFiICierI99Rkt3Ob7xgQ54B2mMt9OvdDeysYD2Ss938ii2', '2022-06-24 14:30:13.287383', '2022-06-24 14:30:13.287383')[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "active_admin_comments" ENABLE TRIGGER ALL;ALTER TABLE "admin_users" ENABLE TRIGGER ALL;ALTER TABLE "examples" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_overriden_template
+--------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+PreviewableTest: test_has_default_locales
+-----------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+PreviewableTest: test_has_overriden_locales
+-------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_a_default_layout
+------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+PreviewableTest: test_has_overriden_instance_variables
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PreviewableTest: test_has_a_default_template
+--------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+PreviewableTest: test_has_overriden_layout
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PreviewableTest: test_has_default_instance_variables
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+BlogTest: test_shows_blog_posts
+-------------------------------
+Started GET "/admin/login" for 127.0.0.1 at 2022-06-24 14:30:13 +0000
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/devise/shared/_links.erb (Duration: 3.9ms | Allocations: 792)
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (Duration: 15.9ms | Allocations: 6314)
+Completed 200 OK in 223ms (Views: 214.8ms | ActiveRecord: 0.0ms | Allocations: 34981)
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+Started GET "/admin/examples" for 127.0.0.1 at 2022-06-24 14:30:13 +0000
+Processing by Admin::ExamplesController#index as HTML
+  Rendering /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mExample Load (1.1ms)[0m  [1m[34mSELECT "examples".* FROM "examples" ORDER BY "examples"."id" desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/index.html.arb (Duration: 37.2ms | Allocations: 17211)
+Completed 200 OK in 44ms (Views: 38.2ms | ActiveRecord: 1.1ms | Allocations: 19757)
+Started GET "/admin/examples/1008787885/edit" for 127.0.0.1 at 2022-06-24 14:30:13 +0000
+Processing by Admin::ExamplesController#edit as HTML
+  Parameters: {"id"=>"1008787885"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 135138680], ["LIMIT", 1]]
+  [1m[36mExample Load (0.1ms)[0m  [1m[34mSELECT "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT $2[0m  [["id", 1008787885], ["LIMIT", 1]]
+  Rendering /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Example Load (0.0ms)[0m  [1m[34mSELECT "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT $2[0m  [["id", 1008787885], ["LIMIT", 1]]
+  Rendered /usr/local/bundle/gems/activeadmin-2.12.0/app/views/active_admin/resource/edit.html.arb (Duration: 9.2ms | Allocations: 7752)
+Completed 200 OK in 14ms (Views: 10.3ms | ActiveRecord: 0.4ms | Allocations: 9549)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m

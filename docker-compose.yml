@@ -1,50 +1,40 @@
 version: "3"
+networks:
+  development:
+volumes:
+  db_data:
+  gem_cache:
+  shared_data:
 services:
-  db:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: example
-      POSTGRES_DB: kubik_previewable
-    ports:
-      - "5432"
+  source:
+    build:
+      contenxt: .
+      dockerfile: Dockerfile
     volumes:
-      - dbdata:/var/lib/postgresql/data
-  web:
+      - ./:/kubik_media_library
+    env_file: ./.env
     tty: true
     stdin_open: true
     build: .
-    command: bash
+    command: rake
+    ports:
+      - "8080:8080"
+    environment:
+      RAILS_ENV: test
+    depends_on:
+      - active_admin_sample_db
+    networks:
+      - development
+  active_admin_sample_db:
+    image: postgres:12.5-alpine
+    container_name: active_admin_sample_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - shared_data:/var/shared
+    networks:
+      - development
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: example
-      POSTGRES_DB: kubik_previewable
-      DATABASE_URL: postgres://postgres@db
-      WEBPACKER_DEV_SERVER_HOST: webpack
-      REDIS_URL: 'redis://redis:6379'
-      LOCAL_HOST: ${LOCAL_HOST}
-    volumes:
-      - .:/kubik_previewable
-      - ${SSH_PATH}:/home/.ssh
-      - ./.docker/database.yml.docker:/kubik_previewable/test/dummy/config/database.yml
+      POSTGRES_PASSWORD: password
     ports:
-      - "3000:3000"
-      - "8080:8080"
-    depends_on:
-      - db
-  webpack:
-    build: .
-    #command: ./bin/webpack-dev-server
-    volumes:
-      - .:/kubik_previewable
-      - ./.docker/database.yml.docker:/kubik_previewable/test/dummy/config/database.yml
-    ports:
-      - '3035:3035'
-    environment:
-      NODE_ENV: development
-      RAILS_ENV: development
-      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
-volumes:
-  dbdata:
-
+      - 5099:5432
