@@ -13,6 +13,8 @@ gem "rubocop", "~> 1.7"
 
 gem "activeadmin"
 
+gem "sqlite3"
+
 group :development do
   gem "devise"
   gem "pry"
