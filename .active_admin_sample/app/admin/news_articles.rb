@@ -1,5 +1,5 @@
 ActiveAdmin.register NewsArticle do
-  include Kubik::PreviewSharedAdminActions
+  include Kubik::PreviewableAdminAction
   permit_params :title, :header, :category, :content, :featured, :published_at
 
   config.per_page = 3

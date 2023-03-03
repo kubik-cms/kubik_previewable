@@ -3,13 +3,13 @@
 require "test_helper"
 class DummyTestClass
   extend ActiveModel::Naming
-  include Kubik::KubikPreviewable
+  include Kubik::Previewable
   kubik_previewable
 end
 
 class OverridenTestClass
   extend ActiveModel::Naming
-  include Kubik::KubikPreviewable
+  include Kubik::Previewable
   kubik_previewable(
     template: ->(p) { "kubik_page_templates/#{p.layout}" },
     locals: ->(p) { { self_local: p, content: "test content" } },

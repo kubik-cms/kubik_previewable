@@ -1,4 +1,4 @@
 class NewsArticle < ApplicationRecord
-  include Kubik::KubikPreviewable
+  include Kubik::Previewable
   kubik_previewable
 end

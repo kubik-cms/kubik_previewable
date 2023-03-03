@@ -3,6 +3,6 @@
 # Dummy Class for testing
 
 class Example < ApplicationRecord
-  include ::Kubik::KubikPreviewable
+  include ::Kubik::Previewable
   kubik_previewable
 end

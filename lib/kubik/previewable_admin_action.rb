@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 module Kubik
-  # SharedAdminActions module
-  module PreviewSharedAdminActions
+  module PreviewableAdminAction
     extend ActiveSupport::Concern
 
     # rubocop:disable Metrics/MethodLength
@@ -23,10 +22,6 @@ module Kubik
                 send("preview_#{route_key}_admin_#{route_key}_path"),
                 target: "_blank"
       end
-
-      ###############
-      # Member actions
-      ###############
 
       base.send(:member_action,
                 :"preview_#{route_key}",

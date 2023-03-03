@@ -2,7 +2,7 @@
 
 module Kubik
   # Previewable module
-  module KubikPreviewable
+  module Previewable
     extend ActiveSupport::Concern
 
     # Previewable class level methods

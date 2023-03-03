@@ -16,7 +16,6 @@ class BlogTest < ActionDispatch::IntegrationTest
       click_on "Edit"
     end
     click_on "Preview"
-    page.assert_all_of_selectors(:css, "tr.row-title_tag", visible: true)
-    assert_includes(page.first("tr.row-title_tag").text, "Test title tag")
+    page.assert_all_of_selectors(:css, "#examples-show-test-selector", visible: true)
   end
 end

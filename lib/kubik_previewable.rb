@@ -2,10 +2,9 @@
 
 module KubikPreviewable
   class Error < StandardError; end
-  # Your code goes here...
 end
 
 module Kubik
-  require 'kubik/kubik_previewable'
-  require 'kubik/preview_shared_admin_actions'
+  require 'kubik/previewable'
+  require 'kubik/previewable_admin_action'
 end
