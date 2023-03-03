@@ -1,28 +1,55 @@
-# KubikPreviewable
+# Kubik Previewable
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/kubik_previewable`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Add previews for your resource pages to your ActiveAdmin dashboard alongside your other admin actions.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
 ```ruby
-gem 'kubik_previewable'
+gem 'kubik_metatagable'
 ```
 
 And then execute:
 
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install kubik_previewable
+```bash
+bundle install
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Include the module in your model and add the configuration for your preview layout, template, and local assigns. By default, we'll fetch a `@page = Page.find(id)` for you (whatever your model name is), but anything else is up to you to pass in as a string or proc.
+
+```ruby
+class Page < ActiveRecord
+  include ::Kubik::Previewable
+  kubik_previewable
+end
+```
+
+Our pages generally have a `template` field that defines a template to use. This might be implemented like this:
+
+```ruby
+class Page < ActiveRecord
+  LAYOUTS = {
+    home: 'Home',
+    standard: 'Standard'
+  }.freeze
+
+  include ::Kubik::Previewable
+  kubik_previewable(
+    template: ->(page) { "pages/#{page.template}" } # app/views/pages/#{template_id}
+    instance_variables: ->(page) { { page: page, pages_navigation: PagesNavigation.find(page) } },
+  )
+end
+```
+
+Include the `Kubik::PreviewableAdminAction` in the specific `ActiveAdmin.resource` block
+
+```ruby
+ActiveAdmin.register Page do
+  include Kubik::PreviewableAdminAction
+  ...
+end
+```
 
 ## Development
 
