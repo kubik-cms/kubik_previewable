@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "kubik_previewable"
-  spec.version       = "0.1.1"
+  spec.version       = "0.1.2"
   spec.authors       = ["Bart Oleszczyk"]
   spec.email         = ["bart@primate.co.uk"]
 
