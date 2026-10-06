@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Kubik
-  module PreviewCapture
+  module PreviewCaptureService
     class Regenerator
       class << self
         def regenerate(record, variants: nil, async: nil)
@@ -14,13 +14,13 @@ module Kubik
           end
 
           if async
-            KubikPreviewable::RegeneratePreviewScreenshotsJob.perform_later(
+            ::KubikPreviewable::RegeneratePreviewScreenshotsJob.perform_later(
               record.class.name,
               record.id,
               variant_keys.map(&:to_s)
             )
           else
-            KubikPreviewable::RegeneratePreviewScreenshotsJob.perform_now(
+            ::KubikPreviewable::RegeneratePreviewScreenshotsJob.perform_now(
               record.class.name,
               record.id,
               variant_keys.map(&:to_s)

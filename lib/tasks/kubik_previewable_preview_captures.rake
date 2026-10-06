@@ -9,7 +9,7 @@ namespace :kubik_previewable do
 
       if args[:record_id].present?
         record = args[:class_name].constantize.find(args[:record_id])
-        Kubik::PreviewCapture::Regenerator.regenerate(record, variants: variants, async: async)
+        Kubik::PreviewCaptureService::Regenerator.regenerate(record, variants: variants, async: async)
         puts "Queued regeneration for #{record.class.name}##{record.id}"
       else
         Kubik::PreviewCapture.regenerate_all_for_class!(args[:class_name], variants: variants, async: async)
@@ -21,7 +21,7 @@ namespace :kubik_previewable do
     task :regenerate_variant, %i[class_name record_id variant] => :environment do |_t, args|
       async = ActiveModel::Type::Boolean.new.cast(ENV.fetch("ASYNC", "true"))
       record = args[:class_name].constantize.find(args[:record_id])
-      Kubik::PreviewCapture::Regenerator.regenerate_variant(record, args[:variant], async: async)
+      Kubik::PreviewCaptureService::Regenerator.regenerate_variant(record, args[:variant], async: async)
       puts "Queued #{args[:variant]} for #{record.class.name}##{record.id}"
     end
 

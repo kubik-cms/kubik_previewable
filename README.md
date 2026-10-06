@@ -65,11 +65,16 @@ Configure the host app:
 # config/initializers/kubik_previewable.rb
 KubikPreviewable.configure do |config|
   config.preview_screenshots_enabled = true
-  config.capture_base_url = "http://localhost:3000"
+  # URL Ferrum opens (may be an internal address).
+  config.capture_base_url = "http://127.0.0.1:3000"
+  # Optional Host header when base URL is not the public site hostname.
+  config.capture_request_host = "cln.localhost:3000"
   config.render_for_capture = ->(record) { ... } # HTML string for Ferrum
   config.previewable_classes = %w[Page]
 end
 ```
+
+Both `capture_base_url` and `capture_request_host` accept strings or callables (resolved on each capture).
 
 Mount the engine:
 
@@ -77,7 +82,10 @@ Mount the engine:
 mount KubikPreviewable::Engine, at: "/kubik_previewable"
 ```
 
-Set `KUBIK_PREVIEW_CAPTURE_BASE_URL` in production/staging so job workers can reach the web app.
+Environment variables (typical in production/staging):
+
+- `KUBIK_PREVIEW_CAPTURE_BASE_URL` — where Chromium connects (e.g. `http://web:3000`)
+- `KUBIK_PREVIEW_CAPTURE_HOST` — optional `Host` header for virtual hosts / canonical URLs
 
 ### Chromium
 

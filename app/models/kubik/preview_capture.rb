@@ -39,11 +39,11 @@ module Kubik
 
     class << self
       def regenerate_for(record, **options)
-        Kubik::PreviewCapture::Regenerator.regenerate(record, **options)
+        Kubik::PreviewCaptureService::Regenerator.regenerate(record, **options)
       end
 
       def bulk_regenerate(scope:, variants: nil, async: true, batch_size: 100, **options)
-        Kubik::PreviewCapture::Regenerator.bulk_regenerate(
+        Kubik::PreviewCaptureService::Regenerator.bulk_regenerate(
           scope: scope,
           variants: variants,
           async: async,
@@ -59,7 +59,7 @@ module Kubik
         bulk_regenerate(scope: scope, **options)
       end
 
-      def regenerate_stale_or_failed!(older_than: KubikPreviewable.config.stuck_processing_threshold, **options)
+      def regenerate_stale_or_failed!(older_than: ::KubikPreviewable.config.stuck_processing_threshold, **options)
         stuck = where(status: "processing").where("updated_at < ?", older_than.ago)
         stuck.find_each { |capture| capture.update!(status: "failed", error_message: "Timed out") }
 

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "kubik_previewable/configuration"
+require "kubik_previewable/capture_context"
 require "kubik_previewable/engine"
 
 module KubikPreviewable

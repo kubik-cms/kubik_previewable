@@ -12,7 +12,7 @@ module KubikPreviewable
 
       keys = variant_keys.presence || record.class.kubik_preview_screenshot_variant_keys.map(&:to_s)
       keys.each do |variant_key|
-        Kubik::PreviewCapture::Regenerator.capture_single_variant!(record, variant_key)
+        Kubik::PreviewCaptureService::Regenerator.capture_single_variant!(record, variant_key)
       end
     end
   end

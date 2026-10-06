@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Kubik
-  module PreviewCapture
+  module PreviewCaptureService
     module CaptureToken
       module_function
 
@@ -9,7 +9,7 @@ module Kubik
         payload = {
           class_name: record.class.name,
           id: record.id,
-          exp: KubikPreviewable.config.capture_token_ttl.from_now.to_i
+          exp: ::KubikPreviewable.config.capture_token_ttl.from_now.to_i
         }
         verifier.generate(payload)
       end
@@ -31,7 +31,7 @@ module Kubik
 
       def capture_url(record)
         token = generate(record)
-        base = KubikPreviewable.config.capture_base_url.to_s.chomp("/")
+        base = ::KubikPreviewable.config.resolved_capture_base_url.to_s.chomp("/")
         "#{base}/kubik_previewable/captures/render/#{token}"
       end
 

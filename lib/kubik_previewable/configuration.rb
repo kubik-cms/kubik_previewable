@@ -10,6 +10,7 @@ module KubikPreviewable
 
     attr_accessor :preview_screenshots_enabled,
                   :capture_base_url,
+                  :capture_request_host,
                   :render_for_capture,
                   :preview_screenshots_async,
                   :preview_variants,
@@ -21,6 +22,7 @@ module KubikPreviewable
     def initialize
       @preview_screenshots_enabled = false
       @capture_base_url = nil
+      @capture_request_host = nil
       @render_for_capture = nil
       @preview_screenshots_async = true
       @preview_variants = DEFAULT_VARIANTS.deep_dup
@@ -31,7 +33,21 @@ module KubikPreviewable
     end
 
     def preview_screenshots_enabled?
-      ActiveModel::Type::Boolean.new.cast(preview_screenshots_enabled)
+      value = @preview_screenshots_enabled
+      value = value.call if value.respond_to?(:call)
+      ActiveModel::Type::Boolean.new.cast(value)
+    end
+
+    def resolved_capture_base_url
+      value = @capture_base_url
+      value = value.call if value.respond_to?(:call)
+      value.to_s.presence
+    end
+
+    def resolved_capture_request_host
+      value = @capture_request_host
+      value = value.call if value.respond_to?(:call)
+      value.to_s.presence
     end
   end
 end

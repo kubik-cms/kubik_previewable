@@ -6,7 +6,7 @@ module Kubik
       return false unless record
       return false unless record.class.respond_to?(:kubik_preview_screenshots_configured?)
       return false unless record.class.kubik_preview_screenshots_configured?
-      return false unless KubikPreviewable.config.preview_screenshots_enabled?
+      return false unless ::KubikPreviewable.config.preview_screenshots_enabled?
 
       kubik_preview_captures_available?(record) ||
         kubik_preview_captures_in_progress?(record) ||
@@ -51,7 +51,7 @@ module Kubik
       return unless defined?(Turbo::StreamsChannel)
       return unless record
 
-      helper = Object.new.extend(Kubik::PreviewCapturesAdminHelper)
+      helper = Object.new.extend(ActionView::RecordIdentifier).extend(Kubik::PreviewCapturesAdminHelper)
       stream = helper.kubik_preview_captures_stream_name(record)
       target = helper.kubik_preview_captures_dom_id(record)
 

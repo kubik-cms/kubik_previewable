@@ -24,7 +24,7 @@ module Kubik
                 only: %i[show],
                 if: proc {
                   base_class.kubik_preview_screenshots_configured? &&
-                    KubikPreviewable.config.preview_screenshots_enabled? &&
+                    ::KubikPreviewable.config.preview_screenshots_enabled? &&
                     helpers.kubik_preview_captures_show_panel?(resource)
                 }) do
         link_to "Regenerate previews",
