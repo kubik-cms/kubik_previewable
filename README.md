@@ -47,9 +47,48 @@ Include the `Kubik::PreviewableAdminAction` in the specific `ActiveAdmin.resourc
 ```ruby
 ActiveAdmin.register Page do
   include Kubik::PreviewableAdminAction
+  include Kubik::PreviewCapturesAdminAction
   ...
+  show do
+    kubik_render_preview_captures_panel(resource)
+  end
 end
 ```
+
+## Preview screenshots
+
+Enable per model with `screenshots: { enabled: true, variants: %i[desktop mobile] }`.
+
+Configure the host app:
+
+```ruby
+# config/initializers/kubik_previewable.rb
+KubikPreviewable.configure do |config|
+  config.preview_screenshots_enabled = true
+  config.capture_base_url = "http://localhost:3000"
+  config.render_for_capture = ->(record) { ... } # HTML string for Ferrum
+  config.previewable_classes = %w[Page]
+end
+```
+
+Mount the engine:
+
+```ruby
+mount KubikPreviewable::Engine, at: "/kubik_previewable"
+```
+
+Set `KUBIK_PREVIEW_CAPTURE_BASE_URL` in production/staging so job workers can reach the web app.
+
+### Chromium
+
+Screenshot jobs need a Chromium/Chrome binary (`CHROME_BIN` or `/usr/bin/chromium`). Install Chromium on hosts that run `bin/jobs` / Solid Queue workers, not only on web containers.
+
+### Rake tasks
+
+- `rake kubik_previewable:preview_captures:regenerate[Page]`
+- `rake kubik_previewable:preview_captures:regenerate[Page,123]`
+- `rake kubik_previewable:preview_captures:regenerate_variant[Page,123,mobile]`
+- `rake kubik_previewable:preview_captures:backfill` (optional `ONLY_FAILED=true`, `ASYNC=false`)
 
 ## Development
 

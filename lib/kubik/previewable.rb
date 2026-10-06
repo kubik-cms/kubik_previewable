@@ -5,20 +5,78 @@ module Kubik
   module Previewable
     extend ActiveSupport::Concern
 
-    # Previewable class level methods
+    included do
+      class_attribute :kubik_preview_screenshot_trigger, default: :published_save
+    end
+
     class_methods do
       attr_reader :kubik_previewable_opts
-
-      private
 
       def kubik_previewable(opts = {})
         options = {
           preview_enabled: true,
           layout: "layouts/application",
           template: "#{model_name.plural}/show",
-          locals: {}
-        }.merge(opts)
+          locals: {},
+          screenshots: { enabled: false }
+        }.deep_merge(opts.deep_symbolize_keys)
         @kubik_previewable_opts = options
+
+        if kubik_preview_screenshots_configured?
+          has_many :kubik_preview_captures,
+                   as: :previewable,
+                   class_name: "Kubik::PreviewCapture",
+                   dependent: :destroy
+
+          after_commit :enqueue_kubik_preview_capture_regeneration, on: %i[create update]
+        end
+
+        self.kubik_preview_screenshot_trigger = options.dig(:screenshots, :trigger)&.to_sym || :published_save
+      end
+
+      def kubik_preview_screenshots_configured?
+        kubik_previewable_opts.present? &&
+          ActiveModel::Type::Boolean.new.cast(kubik_previewable_opts.dig(:screenshots, :enabled))
+      end
+
+      def kubik_preview_screenshots_options
+        kubik_previewable_opts.fetch(:screenshots, {})
+      end
+
+      def kubik_preview_screenshots_async?
+        opt = kubik_preview_screenshots_options[:async]
+        return KubikPreviewable.config.preview_screenshots_async if opt.nil?
+
+        ActiveModel::Type::Boolean.new.cast(opt)
+      end
+
+      def kubik_preview_screenshot_variant_keys
+        opts = kubik_preview_screenshots_options
+        keys = opts[:variants] || KubikPreviewable.config.preview_variants.keys
+        keys = Array(keys).map(&:to_sym)
+        extra = opts[:extra_variants] || {}
+        keys + extra.keys.map(&:to_sym)
+      end
+
+      def kubik_preview_variant_config(variant_key)
+        key = variant_key.to_sym
+        extra = kubik_preview_screenshots_options[:extra_variants] || {}
+        global = KubikPreviewable.config.preview_variants
+        config = extra[key] || global[key]
+        raise ArgumentError, "Unknown preview variant: #{variant_key}" unless config
+
+        config.symbolize_keys
+      end
+
+      def kubik_preview_screenshot_fields
+        custom = kubik_preview_screenshots_options[:fields]
+        return Array(custom).map(&:to_sym) if custom.present?
+
+        if respond_to?(:kubik_versionable_field_names)
+          kubik_versionable_field_names
+        else
+          %i[content]
+        end
       end
     end
 
@@ -39,9 +97,86 @@ module Kubik
 
     def kubik_previewable_instance_variables
       instance_variable_setting = self.class.kubik_previewable_opts[:instance_variables]
-      return [] if instance_variable_setting.nil?
+      return {} if instance_variable_setting.nil?
 
       instance_variable_setting.is_a?(Proc) ? instance_variable_setting.call(self) : instance_variable_setting
+    end
+
+    def published_for_preview?
+      custom = self.class.kubik_preview_screenshots_options[:published_for_preview]
+      return custom.call(self) if custom.respond_to?(:call)
+
+      if respond_to?(:published?)
+        published?
+      else
+        true
+      end
+    end
+
+    def regenerate_kubik_preview_captures!(async: nil, variants: nil)
+      Kubik::PreviewCapture::Regenerator.regenerate(self, variants: variants, async: async)
+    end
+
+    def regenerate_kubik_preview_capture!(variant, async: nil)
+      Kubik::PreviewCapture::Regenerator.regenerate_variant(self, variant, async: async)
+    end
+
+    def reset_stuck_kubik_preview_captures!(older_than: KubikPreviewable.config.stuck_processing_threshold)
+      kubik_preview_captures.where(status: "processing").where("updated_at < ?", older_than.ago)
+                            .update_all(status: "failed", error_message: "Timed out", updated_at: Time.current)
+    end
+
+    private
+
+    def enqueue_kubik_preview_capture_regeneration
+      return unless self.class.kubik_preview_screenshots_configured?
+      return unless KubikPreviewable.config.preview_screenshots_enabled?
+      return if skip_kubik_preview_capture_enqueue?
+      return unless should_regenerate_kubik_preview_captures?
+
+      regenerate_kubik_preview_captures!
+    end
+
+    def skip_kubik_preview_capture_enqueue?
+      KubikPreviewable.config.skip_screenshots_in_test_env && Rails.env.test?
+    end
+
+    def should_regenerate_kubik_preview_captures?
+      return false unless published_for_preview?
+
+      trigger = self.class.kubik_preview_screenshot_trigger
+      case trigger
+      when :publish_only
+        publish_only_regeneration?
+      else
+        published_save_regeneration?
+      end
+    end
+
+    def publish_only_regeneration?
+      if respond_to?(:published_version_id) && saved_change_to_published_version_id?
+        return true
+      end
+      if respond_to?(:published_at) && saved_change_to_published_at? && published_at.present?
+        return true
+      end
+
+      false
+    end
+
+    def published_save_regeneration?
+      return true if publish_only_regeneration?
+      return false if skip_regeneration_for_draft_working_copy?
+
+      fields = self.class.kubik_preview_screenshot_fields
+      fields.any? { |field| saved_change_to_attribute?(field) }
+    end
+
+    def skip_regeneration_for_draft_working_copy?
+      return false unless defined?(Kubik::Features) && Kubik::Features.content_versions_enabled?
+      return false unless respond_to?(:working_copy_differs_from_published?)
+
+      working_copy_differs_from_published?
     end
   end
 end

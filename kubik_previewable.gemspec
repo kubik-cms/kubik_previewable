@@ -1,40 +1,34 @@
-# frozen_string_literal: true
+# -*- encoding: utf-8 -*-
+# stub: kubik_previewable 0.1.2 ruby lib
 
-Gem::Specification.new do |spec|
-  spec.name          = "kubik_previewable"
-  spec.version       = "0.1.2"
-  spec.authors       = ["Bart Oleszczyk"]
-  spec.email         = ["bart@primate.co.uk"]
+Gem::Specification.new do |s|
+  s.name = "kubik_previewable".freeze
+  s.version = "0.1.2".freeze
 
-  spec.summary       = "Previewable module for Kubik CMS"
-  spec.description   = "Active admin mixin to generate browsable resources preview"
-  spec.homepage      = "https://github.com/primate-inc/kubik_previewable"
-  spec.license       = "MIT"
-  spec.required_ruby_version = ">= 2.7.0"
+  s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
+  s.metadata = { "allowed_push_host" => "TODO: Set to 'http://mygemserver.com'", "changelog_uri" => "https://github.com/primate-inc/kubik_previewable/CHANGELOG.md", "homepage_uri" => "https://github.com/primate-inc/kubik_previewable", "source_code_uri" => "https://github.com/primate-inc/kubik_previewable" } if s.respond_to? :metadata=
+  s.require_paths = ["lib".freeze]
+  s.authors = ["Bart Oleszczyk".freeze]
+  s.bindir = "exe".freeze
+  s.date = "2026-09-30"
+  s.description = "Active admin mixin to generate browsable resources preview".freeze
+  s.email = ["bart@primate.co.uk".freeze]
+  s.files = [".active_admin_sample/.env.development".freeze, ".active_admin_sample/.gitattributes".freeze, ".active_admin_sample/.gitignore".freeze, ".active_admin_sample/.ruby-version".freeze, ".active_admin_sample/Dockerfile".freeze, ".active_admin_sample/Gemfile".freeze, ".active_admin_sample/Gemfile.lock".freeze, ".active_admin_sample/README.md".freeze, ".active_admin_sample/Rakefile".freeze, ".active_admin_sample/app/admin/admin_users.rb".freeze, ".active_admin_sample/app/admin/book_authors.rb".freeze, ".active_admin_sample/app/admin/book_editions.rb".freeze, ".active_admin_sample/app/admin/books.rb".freeze, ".active_admin_sample/app/admin/dashboard.rb".freeze, ".active_admin_sample/app/admin/news_articles.rb".freeze, ".active_admin_sample/app/admin/overview.rb".freeze, ".active_admin_sample/app/assets/config/manifest.js".freeze, ".active_admin_sample/app/assets/images/.keep".freeze, ".active_admin_sample/app/assets/javascripts/active_admin.js".freeze, ".active_admin_sample/app/assets/stylesheets/active_admin.scss".freeze, ".active_admin_sample/app/assets/stylesheets/application.css".freeze, ".active_admin_sample/app/channels/application_cable/channel.rb".freeze, ".active_admin_sample/app/channels/application_cable/connection.rb".freeze, ".active_admin_sample/app/controllers/application_controller.rb".freeze, ".active_admin_sample/app/controllers/concerns/.keep".freeze, ".active_admin_sample/app/helpers/application_helper.rb".freeze, ".active_admin_sample/app/javascript/channels/consumer.js".freeze, ".active_admin_sample/app/javascript/channels/index.js".freeze, ".active_admin_sample/app/javascript/packs/application.js".freeze, ".active_admin_sample/app/jobs/application_job.rb".freeze, ".active_admin_sample/app/mailers/application_mailer.rb".freeze, ".active_admin_sample/app/models/admin_user.rb".freeze, ".active_admin_sample/app/models/application_record.rb".freeze, ".active_admin_sample/app/models/book.rb".freeze, ".active_admin_sample/app/models/book_author.rb".freeze, ".active_admin_sample/app/models/book_edition.rb".freeze, ".active_admin_sample/app/models/concerns/.keep".freeze, ".active_admin_sample/app/models/news_article.rb".freeze, ".active_admin_sample/app/views/layouts/application.html.erb".freeze, ".active_admin_sample/app/views/layouts/mailer.html.erb".freeze, ".active_admin_sample/app/views/layouts/mailer.text.erb".freeze, ".active_admin_sample/bin/rails".freeze, ".active_admin_sample/bin/rake".freeze, ".active_admin_sample/bin/setup".freeze, ".active_admin_sample/bin/spring".freeze, ".active_admin_sample/bin/yarn".freeze, ".active_admin_sample/config.ru".freeze, ".active_admin_sample/config/application.rb".freeze, ".active_admin_sample/config/boot.rb".freeze, ".active_admin_sample/config/cable.yml".freeze, ".active_admin_sample/config/credentials.yml.enc".freeze, ".active_admin_sample/config/database.yml".freeze, ".active_admin_sample/config/environment.rb".freeze, ".active_admin_sample/config/environments/development.rb".freeze, ".active_admin_sample/config/environments/production.rb".freeze, ".active_admin_sample/config/environments/test.rb".freeze, ".active_admin_sample/config/initializers/active_admin.rb".freeze, ".active_admin_sample/config/initializers/application_controller_renderer.rb".freeze, ".active_admin_sample/config/initializers/assets.rb".freeze, ".active_admin_sample/config/initializers/backtrace_silencers.rb".freeze, ".active_admin_sample/config/initializers/content_security_policy.rb".freeze, ".active_admin_sample/config/initializers/cookies_serializer.rb".freeze, ".active_admin_sample/config/initializers/devise.rb".freeze, ".active_admin_sample/config/initializers/filter_parameter_logging.rb".freeze, ".active_admin_sample/config/initializers/inflections.rb".freeze, ".active_admin_sample/config/initializers/mime_types.rb".freeze, ".active_admin_sample/config/initializers/permissions_policy.rb".freeze, ".active_admin_sample/config/initializers/wrap_parameters.rb".freeze, ".active_admin_sample/config/locales/devise.en.yml".freeze, ".active_admin_sample/config/locales/en.yml".freeze, ".active_admin_sample/config/puma.rb".freeze, ".active_admin_sample/config/routes.rb".freeze, ".active_admin_sample/config/spring.rb".freeze, ".active_admin_sample/config/storage.yml".freeze, ".active_admin_sample/db/migrate/20220321144902_devise_create_admin_users.rb".freeze, ".active_admin_sample/db/migrate/20220321144903_create_active_admin_comments.rb".freeze, ".active_admin_sample/db/migrate/20220322150648_create_news_articles.rb".freeze, ".active_admin_sample/db/migrate/20220328102000_create_book_authors.rb".freeze, ".active_admin_sample/db/migrate/20220328102013_create_books.rb".freeze, ".active_admin_sample/db/migrate/20220328102113_create_book_editions.rb".freeze, ".active_admin_sample/db/migrate/20220522231901_create_kubik_media_uploads.rb".freeze, ".active_admin_sample/db/migrate/20220522231902_create_kubik_uploads.rb".freeze, ".active_admin_sample/db/schema.rb".freeze, ".active_admin_sample/db/seeds.rb".freeze, ".active_admin_sample/dev-entrypoint.sh".freeze, ".active_admin_sample/lib/assets/.keep".freeze, ".active_admin_sample/lib/tasks/.keep".freeze, ".active_admin_sample/log/.keep".freeze, ".active_admin_sample/package.json".freeze, ".active_admin_sample/public/404.html".freeze, ".active_admin_sample/public/422.html".freeze, ".active_admin_sample/public/500.html".freeze, ".active_admin_sample/public/apple-touch-icon-precomposed.png".freeze, ".active_admin_sample/public/apple-touch-icon.png".freeze, ".active_admin_sample/public/favicon.ico".freeze, ".active_admin_sample/public/robots.txt".freeze, ".active_admin_sample/storage/.keep".freeze, ".active_admin_sample/test/application_system_test_case.rb".freeze, ".active_admin_sample/test/channels/application_cable/connection_test.rb".freeze, ".active_admin_sample/test/controllers/.keep".freeze, ".active_admin_sample/test/fixtures/admin_users.yml".freeze, ".active_admin_sample/test/fixtures/book_authors.yml".freeze, ".active_admin_sample/test/fixtures/book_editions.yml".freeze, ".active_admin_sample/test/fixtures/books.yml".freeze, ".active_admin_sample/test/fixtures/files/.keep".freeze, ".active_admin_sample/test/fixtures/kubik_media_uploads.yml".freeze, ".active_admin_sample/test/fixtures/news_articles.yml".freeze, ".active_admin_sample/test/helpers/.keep".freeze, ".active_admin_sample/test/integration/.keep".freeze, ".active_admin_sample/test/mailers/.keep".freeze, ".active_admin_sample/test/models/.keep".freeze, ".active_admin_sample/test/models/admin_user_test.rb".freeze, ".active_admin_sample/test/models/book_author_test.rb".freeze, ".active_admin_sample/test/models/book_edition_test.rb".freeze, ".active_admin_sample/test/models/book_test.rb".freeze, ".active_admin_sample/test/models/news_article_test.rb".freeze, ".active_admin_sample/test/system/.keep".freeze, ".active_admin_sample/test/test_helper.rb".freeze, ".active_admin_sample/vendor/.keep".freeze, ".active_admin_sample/yarn.lock".freeze, ".docker/database.yml.docker".freeze, ".editorconfig".freeze, ".github/workflows/main.yml".freeze, ".gitignore".freeze, ".rubocop.yml".freeze, "CHANGELOG.md".freeze, "CODE_OF_CONDUCT.md".freeze, "Dockerfile".freeze, "Gemfile".freeze, "Gemfile.lock".freeze, "LICENSE.txt".freeze, "README.md".freeze, "Rakefile".freeze, "app/models/concerns/kubik/kubik_previewable.rb".freeze, "bin/bundle".freeze, "bin/console".freeze, "bin/nokogiri".freeze, "bin/racc".freeze, "bin/rackup".freeze, "bin/rails".freeze, "bin/rake".freeze, "bin/rubocop".freeze, "bin/ruby-parse".freeze, "bin/ruby-rewrite".freeze, "bin/setup".freeze, "bin/sprockets".freeze, "bin/thor".freeze, "docker-compose-test.yml".freeze, "docker-compose.yml".freeze, "kubik_previewable.gemspec".freeze, "lib/kubik/previewable.rb".freeze, "lib/kubik/previewable_admin_action.rb".freeze, "lib/kubik_previewable.rb".freeze]
+  s.homepage = "https://github.com/primate-inc/kubik_previewable".freeze
+  s.licenses = ["MIT".freeze]
+  s.required_ruby_version = Gem::Requirement.new(">= 2.7.0".freeze)
+  s.rubygems_version = "3.5.4".freeze
+  s.summary = "Previewable module for Kubik CMS".freeze
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  s.installed_by_version = "3.5.4".freeze if s.respond_to? :installed_by_version
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = spec.homepage
-  spec.metadata["changelog_uri"] = "#{spec.homepage}/CHANGELOG.md"
+  s.specification_version = 4
 
-  # Specify which files should be added to the gem when it is released.
-  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{\A(?:test|spec|features)/}) }
-  end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
-
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
-  spec.add_dependency "activeadmin"
-  spec.add_dependency "devise"
-  spec.add_development_dependency "pg"
-  spec.add_dependency "rails"
-  spec.add_development_dependency "warning"
-
-  # For more information and examples about making a new gem, checkout our
-  # guide at: https://bundler.io/guides/creating_gem.html
+  s.add_runtime_dependency(%q<activeadmin>.freeze, [">= 0".freeze])
+  s.add_runtime_dependency(%q<devise>.freeze, [">= 0".freeze])
+  s.add_development_dependency(%q<pg>.freeze, [">= 0".freeze])
+  s.add_runtime_dependency(%q<rails>.freeze, [">= 0".freeze])
+  s.add_runtime_dependency(%q<ferrum>.freeze, [">= 0".freeze])
+  s.add_runtime_dependency(%q<turbo-rails>.freeze, [">= 0".freeze])
+  s.add_development_dependency(%q<warning>.freeze, [">= 0".freeze])
 end
