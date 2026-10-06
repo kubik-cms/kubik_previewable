@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |s|
   s.name = "kubik_previewable".freeze
-  s.version = "0.1.2".freeze
+  s.version = "0.1.3".freeze
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.metadata = { "allowed_push_host" => "TODO: Set to 'http://mygemserver.com'", "changelog_uri" => "https://github.com/primate-inc/kubik_previewable/CHANGELOG.md", "homepage_uri" => "https://github.com/primate-inc/kubik_previewable", "source_code_uri" => "https://github.com/primate-inc/kubik_previewable" } if s.respond_to? :metadata=
