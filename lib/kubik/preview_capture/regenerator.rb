@@ -10,7 +10,7 @@ module Kubik
 
           variant_keys = normalize_variants(record, variants)
           if async.nil?
-            async = record.class.kubik_preview_screenshots_async?
+            async = resolve_async_flag(record)
           end
 
           if async
@@ -47,8 +47,10 @@ module Kubik
           Kubik::PreviewCapturesAdminHelper.broadcast_preview_captures_panel(record)
 
           png = BrowserCapture.capture_variant!(record, variant_key, config)
-          capture.image.purge if capture.image.attached?
-          capture.image.attach(
+          storage = Kubik::PreviewCaptureFiles.adapter
+          storage.purge!(capture)
+          storage.attach!(
+            capture,
             io: StringIO.new(png),
             filename: "#{record.class.model_name.singular}_#{record.id}_#{variant_key}.png",
             content_type: "image/png"
@@ -72,6 +74,16 @@ module Kubik
         end
 
         private
+
+        # Ferrum must not run inside the same Puma thread that is serving the admin
+        # request; it needs another thread to render /kubik_previewable/captures/render.
+        def resolve_async_flag(record)
+          if ::KubikPreviewable::CaptureRequestContext.http_request
+            return true
+          end
+
+          record.class.kubik_preview_screenshots_async?
+        end
 
         def normalize_variants(record, variants)
           keys = variants.presence || record.class.kubik_preview_screenshot_variant_keys

@@ -2,6 +2,8 @@
 
 require "kubik_previewable/configuration"
 require "kubik_previewable/capture_context"
+require "kubik_previewable/capture_request_context"
+require "kubik_previewable/capture_request_middleware"
 require "kubik_previewable/engine"
 
 module KubikPreviewable
@@ -29,6 +31,7 @@ module Kubik
   require "kubik/previewable_admin_action"
   require "kubik/preview_captures_admin_helper"
   require "kubik/preview_captures_admin_action"
+  require "kubik/preview_capture_files"
   require "kubik/preview_capture/capture_token"
   require "kubik/preview_capture/browser_capture"
   require "kubik/preview_capture/regenerator"

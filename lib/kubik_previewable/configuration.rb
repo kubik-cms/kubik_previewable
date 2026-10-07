@@ -3,9 +3,9 @@
 module KubikPreviewable
   class Configuration
     DEFAULT_VARIANTS = {
-      desktop: { width: 1440, height: 900, label: "Desktop", full_page: true },
-      laptop: { width: 1280, height: 800, label: "Laptop", full_page: true },
-      mobile: { width: 390, height: 844, label: "Mobile", full_page: true, device_scale_factor: 3 }
+      desktop: { width: 1440, height: 900, label: "Desktop", full_page: false },
+      laptop: { width: 1280, height: 800, label: "Laptop", full_page: false },
+      mobile: { width: 390, height: 844, label: "Mobile", full_page: false, device_scale_factor: 3 }
     }.freeze
 
     attr_accessor :preview_screenshots_enabled,
@@ -17,7 +17,8 @@ module KubikPreviewable
                   :previewable_classes,
                   :skip_screenshots_in_test_env,
                   :capture_token_ttl,
-                  :stuck_processing_threshold
+                  :stuck_processing_threshold,
+                  :preview_capture_storage
 
     def initialize
       @preview_screenshots_enabled = false
@@ -30,6 +31,14 @@ module KubikPreviewable
       @skip_screenshots_in_test_env = true
       @capture_token_ttl = 5.minutes
       @stuck_processing_threshold = 15.minutes
+      @preview_capture_storage = :active_storage
+    end
+
+    # :active_storage (default) or :shrine — or a custom Kubik::PreviewCaptureFiles::Base subclass.
+    def resolved_preview_capture_storage
+      value = @preview_capture_storage
+      value = value.call if value.respond_to?(:call)
+      value.presence || :active_storage
     end
 
     def preview_screenshots_enabled?

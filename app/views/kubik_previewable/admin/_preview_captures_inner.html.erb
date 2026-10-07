@@ -29,7 +29,9 @@
        data-variant-pane="<%= variant_key %>"
        id="kubik_preview_capture_<%= dom_id(record) %>_<%= variant_key %>">
     <% if capture&.displayable? %>
-      <%= image_tag capture.image, alt: "#{pane_label} preview", class: "kubik-preview-captures__image", style: "max-width: 100%; height: auto;" %>
+      <div class="kubik-preview-captures__viewport">
+        <%= kubik_preview_capture_image_tag capture, record: record, alt: "#{pane_label} preview" %>
+      </div>
       <% if capture.captured_at %>
         <p class="kubik-preview-captures__meta">Captured <%= l(capture.captured_at, format: :short) %></p>
       <% end %>
@@ -65,6 +67,8 @@
   .kubik-preview-captures__tab.is-active { background: #fff; border-color: #333; font-weight: 600; }
   .kubik-preview-captures__pane { display: none; }
   .kubik-preview-captures__pane.is-active { display: block; }
+  .kubik-preview-captures__viewport { overflow: auto; max-width: 100%; border: 1px solid #ddd; line-height: 0; }
+  .kubik-preview-captures__image { display: block; max-width: none; object-fit: fill; }
   .kubik-preview-captures__error { color: #b00020; }
   .kubik-preview-captures__meta { font-size: 0.85rem; color: #666; margin-top: 0.5rem; }
 </style>

@@ -8,10 +8,7 @@ module Kubik
       return false unless record.class.kubik_preview_screenshots_configured?
       return false unless ::KubikPreviewable.config.preview_screenshots_enabled?
 
-      kubik_preview_captures_available?(record) ||
-        kubik_preview_captures_in_progress?(record) ||
-        record.kubik_preview_captures.failed.any? ||
-        record.published_for_preview?
+      true
     end
 
     def kubik_preview_captures_available?(record)
@@ -43,6 +40,36 @@ module Kubik
       send(:"regenerate_preview_capture_admin_#{route_key}_path", record, variant: variant_key)
     rescue StandardError
       nil
+    end
+
+    def kubik_preview_capture_dimensions(capture, record)
+      width = capture.viewport_width
+      height = capture.viewport_height
+      if width.blank? || height.blank?
+        config = record.class.kubik_preview_variant_config(capture.variant)
+        width = config[:width]
+        height = config[:height]
+      end
+      [width.to_i, height.to_i]
+    end
+
+    def kubik_preview_capture_image_tag(capture, record:, **options)
+      width, height = kubik_preview_capture_dimensions(capture, record)
+      source = Kubik::PreviewCaptureFiles.adapter.image_tag_source(capture)
+      source = absolute_preview_capture_image_url(source)
+      options = options.dup
+      options[:width] = width
+      options[:height] = height
+      options[:class] = [options[:class], "kubik-preview-captures__image"].compact.join(" ")
+      options[:style] = [options[:style], "width: #{width}px; height: #{height}px;"].compact.join(" ")
+      image_tag(source, **options)
+    end
+
+    def absolute_preview_capture_image_url(source)
+      return source unless source.is_a?(String) && source.start_with?("/")
+      return source unless defined?(request) && request.present?
+
+      "#{request.base_url}#{source}"
     end
 
     module_function

@@ -25,7 +25,8 @@ module Kubik
                 if: proc {
                   base_class.kubik_preview_screenshots_configured? &&
                     ::KubikPreviewable.config.preview_screenshots_enabled? &&
-                    helpers.kubik_preview_captures_show_panel?(resource)
+                    resource.respond_to?(:published_for_preview?) &&
+                    resource.published_for_preview?
                 }) do
         link_to "Regenerate previews",
                 send(:"regenerate_preview_captures_admin_#{route_key}_path", resource),

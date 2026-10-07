@@ -3,6 +3,9 @@
 module Kubik
   module PreviewCaptureService
     class BrowserCapture
+      SCREENSHOT_TIMEOUT = 120
+      FULL_PAGE_SCREENSHOT_ERROR = /unable to capture screenshot/i
+
       def self.capture_variant!(record, variant_key, variant_config)
         require "ferrum"
 
@@ -11,12 +14,12 @@ module Kubik
 
         begin
           apply_viewport!(browser, variant_config)
-          apply_capture_request_host!(browser)
           browser.goto(url)
-          browser.network.wait_for_idle(timeout: 30) if browser.network.respond_to?(:wait_for_idle)
+          wait_for_render!(browser)
 
           tempfile = Tempfile.new(["kubik_preview", ".png"])
-          browser.screenshot(path: tempfile.path, full: variant_config.fetch(:full_page, true))
+          full_page = variant_config.fetch(:full_page, false)
+          screenshot_to_file!(browser, tempfile.path, full: full_page)
           tempfile.rewind
           tempfile.read
         ensure
@@ -40,11 +43,39 @@ module Kubik
         opts
       end
 
-      def self.apply_capture_request_host!(browser)
-        host = ::KubikPreviewable.config.resolved_capture_request_host
-        return if host.blank?
+      def self.wait_for_render!(browser)
+        wait_for_network_idle!(browser)
+        wait_for_body!(browser)
+      end
 
-        browser.headers.set("Host" => host)
+      def self.wait_for_body!(browser, timeout: 30)
+        deadline = Process.clock_gettime(Process::CLOCK_MONOTONIC) + timeout
+        loop do
+          return if browser.at_css("body")
+
+          if Process.clock_gettime(Process::CLOCK_MONOTONIC) >= deadline
+            raise Ferrum::TimeoutError, "Timed out waiting for document body"
+          end
+
+          sleep 0.1
+        end
+      end
+
+      def self.wait_for_network_idle!(browser)
+        return unless browser.network.respond_to?(:wait_for_idle)
+
+        browser.network.wait_for_idle(timeout: 8)
+      rescue Ferrum::TimeoutError, Ferrum::PendingConnectionsError
+        # Turbo / Action Cable / analytics can leave idle connections open.
+        nil
+      end
+
+      def self.screenshot_to_file!(browser, path, full:)
+        browser.screenshot(path: path, full: full, timeout: SCREENSHOT_TIMEOUT)
+      rescue Ferrum::BrowserError => e
+        raise unless full && e.message.to_s.match?(FULL_PAGE_SCREENSHOT_ERROR)
+
+        browser.screenshot(path: path, full: false, timeout: SCREENSHOT_TIMEOUT)
       end
 
       def self.apply_viewport!(browser, variant_config)
@@ -53,11 +84,11 @@ module Kubik
         scale = variant_config[:device_scale_factor]
 
         if browser.respond_to?(:set_viewport)
-          browser.set_viewport(
-            width: width,
-            height: height,
-            scale_factor: scale || 0
-          )
+          if scale
+            browser.set_viewport(width: width, height: height, scale_factor: scale)
+          else
+            browser.set_viewport(width: width, height: height)
+          end
         elsif browser.respond_to?(:viewport=)
           vp = scale ? { width: width, height: height, scale: scale } : { width: width, height: height }
           browser.viewport = vp

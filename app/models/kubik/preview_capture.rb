@@ -8,7 +8,7 @@ module Kubik
 
     belongs_to :previewable, polymorphic: true
 
-    has_one_attached :image
+    Kubik::PreviewCaptureFiles.apply_model_attachments!(self)
 
     validates :variant, presence: true
     validates :status, inclusion: { in: STATUSES }
@@ -28,7 +28,7 @@ module Kubik
     end
 
     def displayable?
-      ready? && image.attached?
+      ready? && Kubik::PreviewCaptureFiles.adapter.attached?(self)
     end
 
     def broadcast_admin_panel_refresh

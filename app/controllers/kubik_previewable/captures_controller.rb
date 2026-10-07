@@ -21,7 +21,9 @@ module KubikPreviewable
     private
 
     def with_preview_capture_host
-      KubikPreviewable::CaptureContext.http_host = KubikPreviewable.config.resolved_capture_request_host
+      KubikPreviewable::CaptureContext.rendering_screenshot = true
+      KubikPreviewable::CaptureContext.http_host =
+        KubikPreviewable.config.resolved_capture_request_host.presence || request.host_with_port
       yield
     ensure
       KubikPreviewable::CaptureContext.reset
