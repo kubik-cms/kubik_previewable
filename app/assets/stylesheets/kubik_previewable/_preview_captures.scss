@@ -1,0 +1,160 @@
+// Screenshot capture panel content (tabs use kubik-interface-tabbed from interface_elements).
+// Flex lives on __panels only — do not set display:flex on .kubik-interface-tabbed (breaks AA page tabs).
+.kubik-preview-captures {
+  &__panel-label {
+    @include kubik-typography-para--small;
+    margin: 0 0 var(--kubik-interface-space-50, 0.5rem);
+    font-weight: 600;
+    color: var(--kubik-preview-captures-meta-color, var(--kubik-interface-color-grey-700, #444));
+  }
+
+  &--side-by-side {
+    .kubik-interface-tabbed__tabs {
+      display: none;
+    }
+
+    .kubik-preview-captures__panels {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--kubik-preview-captures-panels-gap, var(--kubik-interface-space-100, 1rem));
+      align-items: flex-start;
+    }
+
+    .kubik-preview-captures__panels > .kubik-interface-tabbed__pane {
+      flex: 1 1 var(--kubik-preview-captures-panel-min-width, 16rem);
+      min-width: 0;
+      max-width: 100%;
+      display: block;
+    }
+  }
+
+  &__viewport {
+    overflow: auto;
+    max-width: 100%;
+    line-height: 0;
+    border: 1px solid var(--kubik-preview-captures-border-color, var(--kubik-interface-color-grey-200, #e6e6e6));
+    border-radius: var(--kubik-preview-captures-radius, var(--kubik-interface-radius-100, 0.25rem));
+    background: var(--kubik-preview-captures-viewport-bg, var(--kubik-interface-color-white, #fff));
+
+    &--loading {
+      position: relative;
+      overflow: hidden;
+      line-height: normal;
+      width: 100%;
+      aspect-ratio: var(--kubik-preview-captures-aspect-ratio);
+      min-height: 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(
+        --kubik-preview-captures-loading-bg,
+        var(--kubik-interface-color-grey-100, #f5f5f5)
+      );
+    }
+  }
+
+  &__loading-state {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--kubik-interface-space-75, 0.75rem);
+    padding: var(--kubik-interface-space-100, 1rem);
+    text-align: center;
+  }
+
+  &__spinner,
+  &__tab-spinner {
+    display: inline-block;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 2px solid var(--kubik-preview-captures-spinner-track, var(--kubik-interface-color-grey-200, #e6e6e6));
+    border-top-color: var(--kubik-preview-captures-spinner-color, var(--kubik-interface-color-grey-700, #444));
+    border-radius: 50%;
+    animation: kubik-preview-captures-spin 0.85s linear infinite;
+  }
+
+  &__tab-spinner {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-width: 1.5px;
+    vertical-align: middle;
+  }
+
+  &__loading-text {
+    @include kubik-typography-para--small;
+    margin: 0;
+    color: var(--kubik-preview-captures-loading-color, var(--kubik-interface-color-grey-600, #666));
+  }
+
+  &__image {
+    display: block;
+    max-width: none;
+    width: 100%;
+    height: auto;
+    object-fit: var(--kubik-preview-captures-image-object-fit, fill);
+  }
+
+  &__toolbar {
+    @include kubik-typography-para--small;
+    margin: var(--kubik-interface-space-75, 0.75rem) 0 0;
+  }
+
+  &__preview-link {
+    color: var(--kubik-preview-captures-link-color, var(--kubik-interface-color-primary, #38678b));
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+
+    &:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  &__meta {
+    @include kubik-typography-para--small;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--kubik-interface-space-50, 0.5rem) var(--kubik-interface-space-100, 1rem);
+    margin: var(--kubik-interface-space-50, 0.5rem) 0 0;
+    color: var(--kubik-preview-captures-meta-color, var(--kubik-interface-color-grey-600, #666));
+  }
+
+  &__meta-text {
+    margin: 0;
+  }
+
+  &__regenerate-form {
+    display: inline;
+    margin: 0;
+  }
+
+  &__regenerate-link {
+    @include kubik-typography-para--small;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--kubik-preview-captures-link-color, var(--kubik-interface-color-primary, #38678b));
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+}
+
+@keyframes kubik-preview-captures-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

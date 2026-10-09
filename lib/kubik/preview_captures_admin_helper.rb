@@ -27,6 +27,10 @@ module Kubik
       "kubik_preview_captures_#{dom_id(record)}"
     end
 
+    def kubik_preview_captures_inner_dom_id(record)
+      "kubik_preview_captures_inner_#{dom_id(record)}"
+    end
+
     def kubik_render_preview_captures_panel(record)
       render partial: "kubik_previewable/admin/preview_captures_panel", locals: { record: record }
     end
@@ -42,6 +46,29 @@ module Kubik
       nil
     end
 
+    def kubik_regenerate_all_preview_captures_path(record)
+      route_key = record.model_name.singular_route_key
+      send(:"regenerate_preview_captures_admin_#{route_key}_path", record)
+    rescue StandardError
+      nil
+    end
+
+    def kubik_admin_preview_path(record)
+      return unless record.class.respond_to?(:kubik_previewable_opts)
+
+      opts = record.class.kubik_previewable_opts
+      return unless opts && ActiveModel::Type::Boolean.new.cast(opts[:preview_enabled])
+
+      route_key = record.model_name.singular_route_key
+      send(:"preview_#{route_key}_admin_#{route_key}_path", record)
+    rescue StandardError
+      nil
+    end
+
+    def kubik_admin_preview_enabled?(record)
+      kubik_admin_preview_path(record).present?
+    end
+
     def kubik_preview_capture_dimensions(capture, record)
       width = capture.viewport_width
       height = capture.viewport_height
@@ -53,6 +80,13 @@ module Kubik
       [width.to_i, height.to_i]
     end
 
+    def kubik_preview_capture_variant_dimensions(record, variant_key, capture: nil)
+      return kubik_preview_capture_dimensions(capture, record) if capture
+
+      config = record.class.kubik_preview_variant_config(variant_key)
+      [config[:width].to_i, config[:height].to_i]
+    end
+
     def kubik_preview_capture_image_tag(capture, record:, **options)
       width, height = kubik_preview_capture_dimensions(capture, record)
       source = Kubik::PreviewCaptureFiles.adapter.image_tag_source(capture)
@@ -60,8 +94,8 @@ module Kubik
       options = options.dup
       options[:width] = width
       options[:height] = height
-      options[:class] = [options[:class], "kubik-preview-captures__image"].compact.join(" ")
-      options[:style] = [options[:style], "width: #{width}px; height: #{height}px;"].compact.join(" ")
+      extra_class = options.delete(:class)
+      options[:class] = ["kubik-preview-captures__image", extra_class].compact.join(" ")
       image_tag(source, **options)
     end
 
@@ -80,7 +114,7 @@ module Kubik
 
       helper = Object.new.extend(ActionView::RecordIdentifier).extend(Kubik::PreviewCapturesAdminHelper)
       stream = helper.kubik_preview_captures_stream_name(record)
-      target = helper.kubik_preview_captures_dom_id(record)
+      target = helper.kubik_preview_captures_inner_dom_id(record)
 
       Turbo::StreamsChannel.broadcast_replace_to(
         stream,

@@ -6,12 +6,14 @@ module Kubik
       class << self
         def regenerate(record, variants: nil, async: nil)
           return unless record.class.kubik_preview_screenshots_configured?
-          return unless record.published_for_preview?
 
           variant_keys = normalize_variants(record, variants)
           if async.nil?
             async = resolve_async_flag(record)
           end
+
+          variant_keys.each { |variant_key| mark_capture_processing!(record, variant_key) }
+          Kubik::PreviewCapturesAdminHelper.broadcast_preview_captures_panel(record)
 
           if async
             ::KubikPreviewable::RegeneratePreviewScreenshotsJob.perform_later(
@@ -88,6 +90,11 @@ module Kubik
         def normalize_variants(record, variants)
           keys = variants.presence || record.class.kubik_preview_screenshot_variant_keys
           keys.map(&:to_sym)
+        end
+
+        def mark_capture_processing!(record, variant_key)
+          config = record.class.kubik_preview_variant_config(variant_key)
+          find_or_build_capture(record, variant_key, config).update!(status: "processing", error_message: nil)
         end
 
         def find_or_build_capture(record, variant_key, config)

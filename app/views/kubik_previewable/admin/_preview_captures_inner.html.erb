@@ -3,72 +3,88 @@
 <% default_variant = variant_keys.find { |k| captures_by_variant[k.to_s]&.displayable? } || variant_keys.first %>
 <% active = params[:preview_variant].presence || default_variant&.to_s %>
 
-<div class="kubik-preview-captures__tabs" role="tablist">
+<div class="kubik-interface-tabbed__tabs" role="tablist">
   <% variant_keys.each do |variant_key| %>
     <% capture = captures_by_variant[variant_key.to_s] %>
     <% tab_label = kubik_preview_capture_variant_label(record, variant_key) %>
     <button type="button"
-            class="kubik-preview-captures__tab<%= ' is-active' if active.to_s == variant_key.to_s %>"
-            data-variant="<%= variant_key %>"
-            onclick="kubikPreviewCapturesSwitchTab(this, '<%= variant_key %>')">
+            class="kubik-interface-tabbed__tab<%= ' is-active' if active.to_s == variant_key.to_s %>"
+            data-kubik-interface-tabbed-target="tab"
+            data-panel-id="<%= variant_key %>"
+            data-action="click->kubik-interface-tabbed#switchTab"
+            role="tab"
+            aria-selected="<%= active.to_s == variant_key.to_s %>"
+            aria-controls="kubik_preview_capture_<%= dom_id(record) %>_<%= variant_key %>">
       <%= tab_label %>
       <% if capture&.in_progress? %>
-        <span class="kubik-preview-captures__status">…</span>
+        <span class="kubik-interface-tabbed__tab-status kubik-preview-captures__tab-spinner" aria-hidden="true"></span>
       <% elsif capture&.status == "failed" %>
-        <span class="kubik-preview-captures__status kubik-preview-captures__status--error">!</span>
+        <span class="kubik-interface-tabbed__tab-status kubik-interface-tabbed__tab-status--error" aria-hidden="true">!</span>
       <% end %>
     </button>
   <% end %>
 </div>
 
-<% variant_keys.each do |variant_key| %>
-  <% capture = captures_by_variant[variant_key.to_s] %>
-  <% pane_label = kubik_preview_capture_variant_label(record, variant_key) %>
-  <% retry_path = kubik_regenerate_preview_capture_path(record, variant_key) %>
-  <div class="kubik-preview-captures__pane<%= ' is-active' if active.to_s == variant_key.to_s %>"
-       data-variant-pane="<%= variant_key %>"
-       id="kubik_preview_capture_<%= dom_id(record) %>_<%= variant_key %>">
-    <% if capture&.displayable? %>
-      <div class="kubik-preview-captures__viewport">
-        <%= kubik_preview_capture_image_tag capture, record: record, alt: "#{pane_label} preview" %>
-      </div>
-      <% if capture.captured_at %>
-        <p class="kubik-preview-captures__meta">Captured <%= l(capture.captured_at, format: :short) %></p>
-      <% end %>
-    <% elsif capture&.status == "failed" %>
-      <p class="kubik-preview-captures__error">Capture failed: <%= capture.error_message %></p>
-      <% if retry_path %>
-        <%= button_to "Retry", retry_path, method: :post, class: "button", form: { data: { turbo: false } } %>
-      <% end %>
-    <% elsif capture&.in_progress? || capture.nil? %>
-      <p class="kubik-preview-captures__pending">Generating preview…</p>
-    <% else %>
-      <p class="kubik-preview-captures__pending">No preview yet.</p>
-    <% end %>
-  </div>
+<% if kubik_admin_preview_enabled?(record) %>
+  <p class="kubik-preview-captures__toolbar">
+    <%= link_to "Preview in new window",
+                kubik_admin_preview_path(record),
+                target: "_blank",
+                rel: "noopener",
+                class: "kubik-preview-captures__preview-link" %>
+  </p>
 <% end %>
 
-<script>
-  function kubikPreviewCapturesSwitchTab(button, variant) {
-    var root = button.closest('.kubik-preview-captures');
-    if (!root) return;
-    root.querySelectorAll('.kubik-preview-captures__tab').forEach(function (el) {
-      el.classList.toggle('is-active', el.getAttribute('data-variant') === variant);
-    });
-    root.querySelectorAll('.kubik-preview-captures__pane').forEach(function (el) {
-      el.classList.toggle('is-active', el.getAttribute('data-variant-pane') === variant);
-    });
-  }
-</script>
-
-<style>
-  .kubik-preview-captures__tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
-  .kubik-preview-captures__tab { padding: 0.35rem 0.75rem; border: 1px solid #ccc; background: #f5f5f5; cursor: pointer; }
-  .kubik-preview-captures__tab.is-active { background: #fff; border-color: #333; font-weight: 600; }
-  .kubik-preview-captures__pane { display: none; }
-  .kubik-preview-captures__pane.is-active { display: block; }
-  .kubik-preview-captures__viewport { overflow: auto; max-width: 100%; border: 1px solid #ddd; line-height: 0; }
-  .kubik-preview-captures__image { display: block; max-width: none; object-fit: fill; }
-  .kubik-preview-captures__error { color: #b00020; }
-  .kubik-preview-captures__meta { font-size: 0.85rem; color: #666; margin-top: 0.5rem; }
-</style>
+<div class="kubik-preview-captures__panels">
+  <% variant_keys.each do |variant_key| %>
+    <% capture = captures_by_variant[variant_key.to_s] %>
+    <% pane_label = kubik_preview_capture_variant_label(record, variant_key) %>
+    <% retry_path = kubik_regenerate_preview_capture_path(record, variant_key) %>
+    <div class="kubik-interface-tabbed__pane<%= ' is-active' if active.to_s == variant_key.to_s %>"
+         data-kubik-interface-tabbed-target="pane"
+         data-panel-id="<%= variant_key %>"
+         role="tabpanel"
+         id="kubik_preview_capture_<%= dom_id(record) %>_<%= variant_key %>">
+      <% if capture&.status == "failed" %>
+        <p class="kubik-interface-tabbed__message kubik-interface-tabbed__message--error">Capture failed: <%= capture.error_message %></p>
+        <% if retry_path %>
+          <%= button_to "Retry", retry_path, method: :post, class: "button" %>
+        <% end %>
+      <% elsif capture&.in_progress? || capture.nil? %>
+        <%= render partial: "kubik_previewable/admin/preview_capture_loading",
+                   locals: {
+                     record: record,
+                     variant_key: variant_key,
+                     capture: capture,
+                     message: "Generating preview…"
+                   } %>
+      <% elsif capture.displayable? %>
+        <div class="kubik-preview-captures__viewport">
+          <%= kubik_preview_capture_image_tag capture, record: record, alt: "#{pane_label} preview" %>
+        </div>
+        <% if capture.captured_at || retry_path %>
+          <div class="kubik-preview-captures__meta">
+            <% if capture.captured_at %>
+              <span class="kubik-preview-captures__meta-text">Captured <%= l(capture.captured_at, format: :short) %></span>
+            <% end %>
+            <% if retry_path %>
+              <%= button_to "Regenerate",
+                            retry_path,
+                            method: :post,
+                            class: "kubik-preview-captures__regenerate-link",
+                            form: { class: "kubik-preview-captures__regenerate-form" } %>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <%= render partial: "kubik_previewable/admin/preview_capture_loading",
+                   locals: {
+                     record: record,
+                     variant_key: variant_key,
+                     capture: capture,
+                     message: "No preview yet."
+                   } %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

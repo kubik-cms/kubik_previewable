@@ -76,6 +76,12 @@ end
 
 Both `capture_base_url` and `capture_request_host` accept strings or callables (resolved on each capture).
 
+Tab switching uses `kubik-interface-tabbed` from `kubik_interface_elements`. Capture-specific styles (viewport, image, loading, meta) ship with this gem:
+
+```scss
+@import "kubik_previewable";
+```
+
 Mount the engine:
 
 ```ruby

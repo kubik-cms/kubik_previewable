@@ -142,8 +142,6 @@ module Kubik
     end
 
     def should_regenerate_kubik_preview_captures?
-      return false unless published_for_preview?
-
       trigger = self.class.kubik_preview_screenshot_trigger
       case trigger
       when :publish_only
@@ -167,7 +165,6 @@ module Kubik
 
     def published_save_regeneration?
       return true if publish_only_regeneration?
-      return false if skip_regeneration_for_draft_working_copy?
 
       changes = committed_attribute_changes
       fields = self.class.kubik_preview_screenshot_fields
@@ -176,13 +173,6 @@ module Kubik
 
     def committed_attribute_changes
       previous_changes.presence || {}
-    end
-
-    def skip_regeneration_for_draft_working_copy?
-      return false unless defined?(Kubik::Features) && Kubik::Features.content_versions_enabled?
-      return false unless respond_to?(:working_copy_differs_from_published?)
-
-      working_copy_differs_from_published?
     end
   end
 end

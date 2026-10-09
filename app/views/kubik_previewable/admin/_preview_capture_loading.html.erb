@@ -1,0 +1,8 @@
+<% width, height = kubik_preview_capture_variant_dimensions(record, variant_key, capture: capture) %>
+<div class="kubik-preview-captures__viewport kubik-preview-captures__viewport--loading"
+     style="--kubik-preview-captures-aspect-ratio: <%= width %> / <%= height %>; max-width: <%= width %>px;">
+  <div class="kubik-preview-captures__loading-state" role="status" aria-live="polite">
+    <span class="kubik-preview-captures__spinner" aria-hidden="true"></span>
+    <span class="kubik-preview-captures__loading-text"><%= message %></span>
+  </div>
+</div>

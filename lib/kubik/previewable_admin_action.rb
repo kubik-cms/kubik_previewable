@@ -11,7 +11,7 @@ module Kubik
       base_class = base.config.resource_class_name.classify.constantize
       base.send(:action_item,
                 :"preview_#{route_key}",
-                only: %i[edit show],
+                only: %i[edit],
                 method: :get,
                 if: proc {
                   base_class.respond_to?(:kubik_previewable_opts) &&

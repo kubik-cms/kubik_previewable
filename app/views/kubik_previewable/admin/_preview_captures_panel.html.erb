@@ -1,16 +1,14 @@
 <% unless kubik_preview_captures_show_panel?(record) %>
 <% else %>
   <%= turbo_stream_from kubik_preview_captures_stream_name(record) %>
-  <div class="kubik-admin-fieldset kubik-preview-captures-fieldset" style="margin-top: 1.5rem;">
-    <h3 class="kubik-admin-fieldset__title">Screenshot previews</h3>
+  <div class="kubik-admin-fieldset kubik-preview-captures-fieldset">
     <div class="kubik-admin-fieldset__body">
-      <% if record.respond_to?(:published_for_preview?) && !record.published_for_preview? %>
-        <p class="kubik-preview-captures__meta">
-          Publish this <%= record.model_name.human.downcase %> to generate or refresh screenshot previews.
-        </p>
-      <% end %>
-      <div id="<%= kubik_preview_captures_dom_id(record) %>" class="kubik-preview-captures">
-        <%= render partial: "kubik_previewable/admin/preview_captures_inner", locals: { record: record } %>
+      <div id="<%= kubik_preview_captures_dom_id(record) %>"
+           class="kubik-interface-tabbed kubik-preview-captures"
+           data-controller="kubik-interface-tabbed">
+        <div id="<%= kubik_preview_captures_inner_dom_id(record) %>">
+          <%= render partial: "kubik_previewable/admin/preview_captures_inner", locals: { record: record } %>
+        </div>
       </div>
     </div>
   </div>

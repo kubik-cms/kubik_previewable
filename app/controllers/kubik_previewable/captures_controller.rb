@@ -9,7 +9,6 @@ module KubikPreviewable
     def render_capture
       record = Kubik::PreviewCaptureService::CaptureToken.verify(params[:token])
       return head :not_found unless record
-      return head :forbidden unless record.published_for_preview?
 
       renderer = KubikPreviewable.config.render_for_capture
       return head :not_implemented unless renderer
