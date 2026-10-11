@@ -32,7 +32,8 @@ module Kubik
       def capture_url(record)
         token = generate(record)
         base = browser_capture_base_url
-        "#{base}/kubik_previewable/captures/render/#{token}"
+        query = Rack::Utils.build_query(token: token)
+        "#{base}#{::KubikPreviewable::CAPTURE_RENDER_PATH}?#{query}"
       end
 
       # Ferrum/Chromium rejects a custom Host header when it does not match the navigation URL

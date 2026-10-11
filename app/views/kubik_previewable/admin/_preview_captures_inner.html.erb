@@ -1,3 +1,4 @@
+<div id="<%= kubik_preview_captures_inner_dom_id(record) %>">
 <% captures_by_variant = record.kubik_preview_captures.index_by { |c| c.variant } %>
 <% variant_keys = record.class.kubik_preview_screenshot_variant_keys %>
 <% default_variant = variant_keys.find { |k| captures_by_variant[k.to_s]&.displayable? } || variant_keys.first %>
@@ -87,4 +88,5 @@
       <% end %>
     </div>
   <% end %>
+</div>
 </div>

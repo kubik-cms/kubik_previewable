@@ -65,16 +65,19 @@ Configure the host app:
 # config/initializers/kubik_previewable.rb
 KubikPreviewable.configure do |config|
   config.preview_screenshots_enabled = true
-  # URL Ferrum opens (may be an internal address).
-  config.capture_base_url = "http://127.0.0.1:3000"
-  # Optional Host header when base URL is not the public site hostname.
-  config.capture_request_host = "cln.localhost:3000"
+  # Optional — defaults via KubikPreviewable::CaptureEndpoint (loopback + env vars below).
+  # config.capture_base_url = "http://127.0.0.1:3000"
+  # config.capture_request_host = "cln.localhost:3000"
   config.render_for_capture = ->(record) { ... } # HTML string for Ferrum
   config.previewable_classes = %w[Page]
 end
 ```
 
-Both `capture_base_url` and `capture_request_host` accept strings or callables (resolved on each capture).
+Both `capture_base_url` and `capture_request_host` accept strings or callables. When unset, `CaptureEndpoint` resolves them from environment variables.
+
+While capture HTML is rendered, the gem disables `asset_host` so stylesheets use same-origin `/assets/...` (required when `ASSET_HOST` is a public CDN or staging site behind HTTP Basic).
+
+For `ApplicationController.renderer` in your capture pipeline, use `KubikPreviewable::CaptureRendererSupport` (loopback `http_host`, `https: false` during capture).
 
 Tab switching uses `kubik-interface-tabbed` from `kubik_interface_elements`. Capture-specific styles (viewport, image, loading, meta) ship with this gem:
 
@@ -90,8 +93,12 @@ mount KubikPreviewable::Engine, at: "/kubik_previewable"
 
 Environment variables (typical in production/staging):
 
-- `KUBIK_PREVIEW_CAPTURE_BASE_URL` — where Chromium connects (e.g. `http://web:3000`)
-- `KUBIK_PREVIEW_CAPTURE_HOST` — optional `Host` header for virtual hosts / canonical URLs
+- `KUBIK_PREVIEW_CAPTURE_BASE_URL` — where Chromium connects (default `http://127.0.0.1:PORT`)
+- `KUBIK_PREVIEW_CAPTURE_HOST` — hostname for URL helpers in captured HTML (defaults from `PRIMARY_HOST` / `ASSET_HOST` when Ferrum uses loopback)
+- `KUBIK_PREVIEW_CAPTURE_USE_PUBLIC_URL` — set `true` to point Ferrum at the public site (often fails in Docker; prefer loopback)
+- `HTTP_BASIC_USER` / `HTTP_BASIC_PASSWORD` — Ferrum sends these via `network.authorize` when set
+
+**HTTP Basic on staging:** skip auth for `KubikPreviewable::CAPTURE_RENDER_PATH` and optionally for loopback clients loading `/assets/*`.
 
 ### Chromium
 
@@ -103,6 +110,7 @@ Screenshot jobs need a Chromium/Chrome binary (`CHROME_BIN` or `/usr/bin/chromiu
 - `rake kubik_previewable:preview_captures:regenerate[Page,123]`
 - `rake kubik_previewable:preview_captures:regenerate_variant[Page,123,mobile]`
 - `rake kubik_previewable:preview_captures:backfill` (optional `ONLY_FAILED=true`, `ASYNC=false`)
+- `rake kubik_previewable:preview_capture:debug CLASS=Page ID=1` — HTML + loopback curl checks
 
 ## Development
 

@@ -20,9 +20,33 @@ module KubikPreviewable
       app.middleware.use KubikPreviewable::CaptureRequestMiddleware
     end
 
+    initializer "kubik_previewable.capture_assets" do |app|
+      app.config.to_prepare do
+        ActionView::Base.prepend(KubikPreviewable::CaptureAssetUrlHelper)
+
+        original = Rails.application.config.action_controller.asset_host
+        next if original.blank?
+
+        Rails.application.config.action_controller.asset_host = lambda do |source, request|
+          if KubikPreviewable::CaptureContext.rendering_screenshot
+            nil
+          elsif original.is_a?(Proc)
+            original.call(source, request)
+          else
+            original
+          end
+        end
+      end
+    end
+
     initializer "kubik_previewable.helpers" do
       ActiveSupport.on_load(:action_view) do
         include Kubik::PreviewCapturesAdminHelper
+      end
+
+      # Turbo::StreamsChannel renders via ApplicationController — not only ActiveAdmin pages.
+      ActiveSupport.on_load(:action_controller) do
+        helper Kubik::PreviewCapturesAdminHelper if respond_to?(:helper)
       end
     end
 

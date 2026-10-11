@@ -50,13 +50,15 @@ module KubikPreviewable
     def resolved_capture_base_url
       value = @capture_base_url
       value = value.call if value.respond_to?(:call)
-      value.to_s.presence
+      value = value.to_s.presence
+      value || KubikPreviewable::CaptureEndpoint.ferrum_base_url
     end
 
     def resolved_capture_request_host
       value = @capture_request_host
       value = value.call if value.respond_to?(:call)
-      value.to_s.presence
+      value = value.to_s.presence
+      value || KubikPreviewable::CaptureEndpoint.request_host
     end
   end
 end

@@ -2,12 +2,18 @@
 
 require "kubik_previewable/configuration"
 require "kubik_previewable/capture_context"
+require "kubik_previewable/capture_endpoint"
+require "kubik_previewable/capture_asset_url_helper"
+require "kubik_previewable/capture_renderer_support"
 require "kubik_previewable/capture_request_context"
 require "kubik_previewable/capture_request_middleware"
 require "kubik_previewable/engine"
 
 module KubikPreviewable
   class Error < StandardError; end
+
+  # Path on the mounted engine (skip HTTP Basic / host authorization in host apps).
+  CAPTURE_RENDER_PATH = "/kubik_previewable/captures/render"
 
   class << self
     attr_writer :configuration

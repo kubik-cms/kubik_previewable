@@ -110,8 +110,9 @@ module Kubik
 
     def broadcast_preview_captures_panel(record)
       return unless defined?(Turbo::StreamsChannel)
-      return unless record
+      return unless record.is_a?(ActiveRecord::Base)
 
+      record.reload
       helper = Object.new.extend(ActionView::RecordIdentifier).extend(Kubik::PreviewCapturesAdminHelper)
       stream = helper.kubik_preview_captures_stream_name(record)
       target = helper.kubik_preview_captures_inner_dom_id(record)
@@ -122,6 +123,9 @@ module Kubik
         partial: "kubik_previewable/admin/preview_captures_inner",
         locals: { record: record }
       )
+    rescue StandardError => e
+      Rails.logger.error("[kubik_preview_capture] Turbo broadcast failed: #{e.class}: #{e.message}")
+      raise if Rails.env.test?
     end
   end
 end
